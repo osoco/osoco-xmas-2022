@@ -1,0 +1,798 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+:root {
+  --cube-size: 200px;
+}
+
+.ooo-cube {
+  width: var(--cube-size);
+  height: var(--cube-size);
+  transform-style: preserve-3d;
+  position: relative;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 1s cubic-bezier(0.41, 0.04, 0, 1.49);
+}
+.ooo-cube.up:hover {
+  transition: all 0.5s cubic-bezier(0.41, 0.04, 0, 1.5);
+  transform: translateZ(var(--cube-size));
+}
+.ooo-cube.rotate90:hover {
+  transform: rotate(90deg);
+  z-index: 2;
+}
+.ooo-cube.rotate90X:hover {
+  transform: translateY(50%) rotateX(90deg) translateY(200px);
+  z-index: 2;
+}
+.ooo-cube > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: #262626;
+  border: 2px solid #aaa;
+  background: #E0E0E0;
+}
+.ooo-cube .up {
+  transform: rotateX(0deg) translateZ(var(--cube-size));
+}
+.ooo-cube .back {
+  transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)) translateY(calc(var(--cube-size) / 2));
+}
+.ooo-cube .right {
+  transform: translateX(calc(var(--cube-size) / 2)) rotateY(90deg) rotateZ(-90deg) translateY(calc(-1 * var(--cube-size) / 2));
+}
+.ooo-cube .front {
+  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)) translateY(calc(-1 * var(--cube-size) / 2));
+}
+.ooo-cube .left {
+  transform: translateX(calc(-1 * var(--cube-size) / 2)) rotateY(-90deg) translateX(calc(var(--cube-size) / 2)) rotateZ(90deg);
+}
+.ooo-cube .down {
+  transform: translateZ(0) rotateX(180deg);
+}
+
+@font-face {
+  font-family: "montserrat_alternatesblack";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-black-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesbold";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-bold-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesXBd";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-extrabold-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesXLt";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-extralight-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-extralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternateslight";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-light-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesmedium";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-medium-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesregular";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-regular-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatessemibold";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-semibold-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "montserrat_alternatesthin";
+  src: url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-thin-webfont.woff2") format("woff2"), url("../fonts/webfontkit-Montserrat_Alternates/montserratalternates-thin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --cube-top-bg: #3A931D;
+  --cube-left-bg: #072107;
+  --cube-front-bg: #115911;
+  --cube-down-bg: #f98d01;
+  --color-up-hover: #f98d01;
+  --color-text: #888;
+  --font-size-base: 16px;
+  --cube-size: 50px;
+}
+@media (min-width: 660px) and (min-height: 660px) {
+  :root {
+    --cube-size: 75px;
+  }
+}
+@media (min-width: 800px) and (min-height: 800px) {
+  :root {
+    --cube-size: 90px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(0, 23, 33);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  font-family: "montserrat_alternatesregular";
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: 1em;
+  background-image: url(../images/luces.png);
+  background-size: cover;
+}
+body.ooo-active .ooo-cube {
+  pointer-events: none;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+h2 strong {
+  font-size: 2em;
+  display: block;
+  font-family: "montserrat_alternatesbold";
+}
+
+.ooo-content {
+  text-align: center;
+}
+
+.ooo-container-3D {
+  position: relative;
+  perspective: 3000px;
+  transform-style: preserve-3d;
+  display: flex;
+  padding-top: calc(var(--cube-size) * 3.2);
+  margin-bottom: calc(var(--cube-size) * -2);
+  z-index: 1;
+}
+
+.ooo-star {
+  position: relative;
+  width: calc(var(--cube-size) * 1.8);
+  height: calc(var(--cube-size) * 1.8);
+  margin: auto;
+  background-image: url("../images/strella.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-animation: estrella-anima 20000ms infinite linear;
+          animation: estrella-anima 20000ms infinite linear;
+}
+
+.ooo-tree {
+  transform: rotateX(40deg) rotateZ(-45deg);
+  transform-style: preserve-3d;
+  display: grid;
+  grid-template-columns: repeat(5, var(--cube-size));
+  grid-template-rows: repeat(5, var(--cube-size));
+  margin: auto;
+}
+.ooo-tree .ooo-cube {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+}
+.ooo-tree .ooo-cube > div.gift-content {
+  transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
+  background-color: #f2f2f2;
+  padding: 1em;
+  font-size: 8px;
+  opacity: 0;
+}
+@media (min-width: 660px) {
+  .ooo-tree .ooo-cube > div.gift-content {
+    font-size: 13px;
+  }
+}
+@media (min-width: 800px) {
+  .ooo-tree .ooo-cube > div.gift-content {
+    font-size: var(--font-size-base);
+  }
+}
+.ooo-tree .ooo-cube:hover > div.gift-content, .ooo-tree .ooo-cube.ooo-active > div.gift-content {
+  transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
+  opacity: 1;
+}
+.ooo-tree > div:nth-child(5) {
+  grid-column-start: 2;
+}
+.ooo-tree > div:nth-child(9) {
+  grid-column-start: 3;
+}
+.ooo-tree > div:nth-child(12) {
+  grid-column-start: 4;
+}
+.ooo-tree > div:nth-child(14) {
+  grid-column-start: 5;
+}
+.ooo-tree > div:nth-child(14) {
+  grid-column-start: 5;
+}
+.ooo-tree > div:nth-child(4),
+.ooo-tree > div:nth-child(8) {
+  transform: translateZ(calc(4 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(4):hover, .ooo-tree > div:nth-child(4).ooo-active,
+.ooo-tree > div:nth-child(8):hover,
+.ooo-tree > div:nth-child(8).ooo-active {
+  transform: rotate(90deg) translateZ(calc(4 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(4):hover .back, .ooo-tree > div:nth-child(4).ooo-active .back,
+.ooo-tree > div:nth-child(8):hover .back,
+.ooo-tree > div:nth-child(8).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(4):hover .up, .ooo-tree > div:nth-child(4).ooo-active .up,
+.ooo-tree > div:nth-child(8):hover .up,
+.ooo-tree > div:nth-child(8).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(4):hover .left, .ooo-tree > div:nth-child(4).ooo-active .left,
+.ooo-tree > div:nth-child(8):hover .left,
+.ooo-tree > div:nth-child(8).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(3),
+.ooo-tree > div:nth-child(7),
+.ooo-tree > div:nth-child(11) {
+  transform: translateZ(calc(3 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(3):hover, .ooo-tree > div:nth-child(3).ooo-active,
+.ooo-tree > div:nth-child(7):hover,
+.ooo-tree > div:nth-child(7).ooo-active,
+.ooo-tree > div:nth-child(11):hover,
+.ooo-tree > div:nth-child(11).ooo-active {
+  transform: rotate(90deg) translateZ(calc(3 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(3):hover .back, .ooo-tree > div:nth-child(3).ooo-active .back,
+.ooo-tree > div:nth-child(7):hover .back,
+.ooo-tree > div:nth-child(7).ooo-active .back,
+.ooo-tree > div:nth-child(11):hover .back,
+.ooo-tree > div:nth-child(11).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(3):hover .up, .ooo-tree > div:nth-child(3).ooo-active .up,
+.ooo-tree > div:nth-child(7):hover .up,
+.ooo-tree > div:nth-child(7).ooo-active .up,
+.ooo-tree > div:nth-child(11):hover .up,
+.ooo-tree > div:nth-child(11).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(3):hover .left, .ooo-tree > div:nth-child(3).ooo-active .left,
+.ooo-tree > div:nth-child(7):hover .left,
+.ooo-tree > div:nth-child(7).ooo-active .left,
+.ooo-tree > div:nth-child(11):hover .left,
+.ooo-tree > div:nth-child(11).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(2),
+.ooo-tree > div:nth-child(6),
+.ooo-tree > div:nth-child(10),
+.ooo-tree > div:nth-child(13) {
+  transform: translateZ(calc(2 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(2):hover, .ooo-tree > div:nth-child(2).ooo-active,
+.ooo-tree > div:nth-child(6):hover,
+.ooo-tree > div:nth-child(6).ooo-active,
+.ooo-tree > div:nth-child(10):hover,
+.ooo-tree > div:nth-child(10).ooo-active,
+.ooo-tree > div:nth-child(13):hover,
+.ooo-tree > div:nth-child(13).ooo-active {
+  transform: rotate(90deg) translateZ(calc(2 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(2):hover .back, .ooo-tree > div:nth-child(2).ooo-active .back,
+.ooo-tree > div:nth-child(6):hover .back,
+.ooo-tree > div:nth-child(6).ooo-active .back,
+.ooo-tree > div:nth-child(10):hover .back,
+.ooo-tree > div:nth-child(10).ooo-active .back,
+.ooo-tree > div:nth-child(13):hover .back,
+.ooo-tree > div:nth-child(13).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(2):hover .up, .ooo-tree > div:nth-child(2).ooo-active .up,
+.ooo-tree > div:nth-child(6):hover .up,
+.ooo-tree > div:nth-child(6).ooo-active .up,
+.ooo-tree > div:nth-child(10):hover .up,
+.ooo-tree > div:nth-child(10).ooo-active .up,
+.ooo-tree > div:nth-child(13):hover .up,
+.ooo-tree > div:nth-child(13).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(2):hover .left, .ooo-tree > div:nth-child(2).ooo-active .left,
+.ooo-tree > div:nth-child(6):hover .left,
+.ooo-tree > div:nth-child(6).ooo-active .left,
+.ooo-tree > div:nth-child(10):hover .left,
+.ooo-tree > div:nth-child(10).ooo-active .left,
+.ooo-tree > div:nth-child(13):hover .left,
+.ooo-tree > div:nth-child(13).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(1),
+.ooo-tree > div:nth-child(5),
+.ooo-tree > div:nth-child(9),
+.ooo-tree > div:nth-child(12),
+.ooo-tree > div:nth-child(14) {
+  transform: translateZ(calc(1 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(1):hover, .ooo-tree > div:nth-child(1).ooo-active,
+.ooo-tree > div:nth-child(5):hover,
+.ooo-tree > div:nth-child(5).ooo-active,
+.ooo-tree > div:nth-child(9):hover,
+.ooo-tree > div:nth-child(9).ooo-active,
+.ooo-tree > div:nth-child(12):hover,
+.ooo-tree > div:nth-child(12).ooo-active,
+.ooo-tree > div:nth-child(14):hover,
+.ooo-tree > div:nth-child(14).ooo-active {
+  transform: rotate(90deg) translateZ(calc(1 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(1):hover .back, .ooo-tree > div:nth-child(1).ooo-active .back,
+.ooo-tree > div:nth-child(5):hover .back,
+.ooo-tree > div:nth-child(5).ooo-active .back,
+.ooo-tree > div:nth-child(9):hover .back,
+.ooo-tree > div:nth-child(9).ooo-active .back,
+.ooo-tree > div:nth-child(12):hover .back,
+.ooo-tree > div:nth-child(12).ooo-active .back,
+.ooo-tree > div:nth-child(14):hover .back,
+.ooo-tree > div:nth-child(14).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(1):hover .up, .ooo-tree > div:nth-child(1).ooo-active .up,
+.ooo-tree > div:nth-child(5):hover .up,
+.ooo-tree > div:nth-child(5).ooo-active .up,
+.ooo-tree > div:nth-child(9):hover .up,
+.ooo-tree > div:nth-child(9).ooo-active .up,
+.ooo-tree > div:nth-child(12):hover .up,
+.ooo-tree > div:nth-child(12).ooo-active .up,
+.ooo-tree > div:nth-child(14):hover .up,
+.ooo-tree > div:nth-child(14).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(1):hover .left, .ooo-tree > div:nth-child(1).ooo-active .left,
+.ooo-tree > div:nth-child(5):hover .left,
+.ooo-tree > div:nth-child(5).ooo-active .left,
+.ooo-tree > div:nth-child(9):hover .left,
+.ooo-tree > div:nth-child(9).ooo-active .left,
+.ooo-tree > div:nth-child(12):hover .left,
+.ooo-tree > div:nth-child(12).ooo-active .left,
+.ooo-tree > div:nth-child(14):hover .left,
+.ooo-tree > div:nth-child(14).ooo-active .left {
+  background-color: #bd5200;
+}
+
+.ooo-cube {
+  color: rgba(176, 253, 166, 0.1);
+}
+.ooo-cube:hover .front, .ooo-cube.ooo-active .front {
+  background-color: var(--cube-left-bg);
+  transition: all 1s;
+}
+.ooo-cube > div {
+  border: none;
+  background-color: var(--cube-left-bg);
+  transition: all 1s;
+}
+.ooo-cube .back {
+  background-color: #f98d01;
+}
+.ooo-cube .up {
+  background-color: var(--cube-top-bg);
+}
+.ooo-cube .left {
+  background-color: var(--cube-left-bg);
+}
+.ooo-cube .front, .ooo-cube .right {
+  background-color: var(--cube-front-bg);
+}
+.ooo-cube .down {
+  background-color: var(--cube-down-bg);
+}
+
+.logo-osoco img {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
+.ooo-lightBox {
+  display: block;
+  position: fixed;
+  padding: 1em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+}
+.ooo-lightBox.ooo-active {
+  pointer-events: initial;
+  opacity: 1;
+}
+.ooo-lightBox > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  background-color: #f2f2f2;
+  color: #072107;
+  padding: calc(2 * var(--font-size-base));
+  border-radius: 4px;
+  border: 1px solid #555;
+  box-shadow: -73px 49px 60px 0px rgba(0, 0, 0, 0.45);
+}
+.ooo-lightBox > div:after, .ooo-lightBox > div::before {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  display: block;
+  content: "";
+  background-color: #555;
+  width: calc(1.5 * var(--font-size-base));
+  height: 4px;
+  transform: rotate(45deg);
+}
+.ooo-lightBox > div::before {
+  transform: rotate(-45deg);
+}
+
+@-webkit-keyframes estrella-anima {
+  to {
+    transform: rotate(180deg) translate(0px, 0px);
+  }
+}
+
+@keyframes estrella-anima {
+  to {
+    transform: rotate(180deg) translate(0px, 0px);
+  }
+}/*# sourceMappingURL=xmas-2023.css.map */

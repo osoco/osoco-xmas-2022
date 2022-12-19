@@ -1,0 +1,297 @@
+@import 'components/reset';
+@import 'components/cube';
+@import 'montserratalternates';
+:root{
+    --cube-top-bg:                #3A931D; 
+    --cube-left-bg:               #072107;
+    --cube-front-bg:              #115911;
+    --cube-down-bg:               #f98d01; 
+    --color-up-hover:             #f98d01;
+    --color-text:                 #888;
+    --font-size-base:               16px;
+    --cube-size:                    50px;
+    @media (min-width: 660px) and (min-height:660px) {
+        --cube-size:                    75px;
+    }
+    @media (min-width: 800px) and (min-height: 800px) {
+        --cube-size:                    90px;
+    }
+}
+* {
+    box-sizing: border-box; 
+  }
+html{
+    background-color: rgb(0,23,33);
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'montserrat_alternatesregular';
+    font-size: var(--font-size-base);
+    margin: 0;
+    padding: 1em;
+    background-image: url(../images/luces.png);
+    background-size: cover;
+    &.ooo-active{
+        .ooo-cube{
+            pointer-events: none;
+        }
+    }
+}
+h1{
+    font-size: 35px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+h2{
+    font-size: 20px;
+    margin-bottom: 1em;
+    margin-top: 0;
+    strong{
+        font-size: 2em;
+        display: block;
+        font-family: 'montserrat_alternatesbold';
+    }
+}
+.ooo-content{
+    text-align: center;
+}
+.ooo-container-3D {
+	position: relative;
+	perspective: 3000px;
+	transform-style: preserve-3d;
+	display: flex;
+	padding-top: calc(var(--cube-size) * 3.2);
+    margin-bottom: calc(var(--cube-size) * -2);
+    z-index: 1;
+}
+.ooo-star{
+    position: relative;
+    width: calc(var(--cube-size) * 1.8);
+    height: calc(var(--cube-size) * 1.8);
+    margin: auto;
+    background-image: url('../images/strella.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: estrella-anima 20000ms infinite linear;
+}
+.ooo-tree {
+	transform: rotateX(40deg) rotateZ(-45deg);
+	transform-style: preserve-3d;
+	display: grid;
+	grid-template-columns: repeat(5, var(--cube-size));
+	grid-template-rows: repeat(5, var(--cube-size));
+	margin: auto;
+    // Colocamos en la cuadricula 3D
+    .ooo-cube {
+        color: var(--color-text);
+        font-size: var(--font-size-base);
+        cursor: pointer;
+        > div.gift-content{
+            transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
+            background-color: #f2f2f2;
+            padding: 1em;
+            font-size: 8px;
+            @media (min-width: 660px) {
+                font-size: 13px;
+            }
+            @media (min-width: 800px) {
+                font-size: var(--font-size-base);
+            }
+            opacity: 0;
+        }
+        &:hover > div.gift-content,
+        &.ooo-active > div.gift-content{
+            transform: rotateX(-90deg) translateZ(0) translateY(calc( -1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
+            opacity: 1;
+        }
+    }
+    > div:nth-child(5){
+        grid-column-start: 2;
+    }
+    > div:nth-child(9){
+        grid-column-start: 3;
+    }
+    > div:nth-child(12){
+        grid-column-start: 4;
+    }
+    > div:nth-child(14){
+        grid-column-start: 5;
+    }
+    > div:nth-child(14){
+        grid-column-start: 5;
+    }
+    // cambiamos alturas
+    > div:nth-child(4),
+    > div:nth-child(8){
+        transform: translateZ(calc(4 * var(--cube-size)));
+        &:hover,
+        &.ooo-active{
+            transform: rotate(90deg) translateZ(calc(4 * var(--cube-size)));
+            .back{
+                background-color: #e86500;
+            }
+            .up{
+                opacity: 0;
+            }
+            .left{
+                background-color: #bd5200;
+            }
+        }
+    }
+    > div:nth-child(3),
+    > div:nth-child(7),
+    > div:nth-child(11){
+        transform: translateZ(calc(3 * var(--cube-size)));
+        &:hover,
+        &.ooo-active{
+            transform: rotate(90deg) translateZ(calc(3 * var(--cube-size)));
+            .back{
+                background-color: #e86500;
+            }
+            .up{
+                opacity: 0;
+            }
+            .left{
+                background-color: #bd5200;
+            }
+        }
+    }
+
+    > div:nth-child(2),
+    > div:nth-child(6),
+    > div:nth-child(10),
+    > div:nth-child(13){
+        transform: translateZ(calc(2 * var(--cube-size)));
+        &:hover,
+        &.ooo-active{
+            transform: rotate(90deg) translateZ(calc(2 * var(--cube-size)));
+            .back{
+                background-color: #e86500;
+            }
+            .up{
+                opacity: 0;
+            }
+            .left{
+                background-color: #bd5200;
+            }
+        }
+    }
+    > div:nth-child(1),
+    > div:nth-child(5),
+    > div:nth-child(9),
+    > div:nth-child(12),
+    > div:nth-child(14){
+        transform: translateZ(calc(1 * var(--cube-size)));
+        &:hover,
+        &.ooo-active{
+            transform: rotate(90deg) translateZ(calc(1 * var(--cube-size)));
+            .back{
+                background-color: #e86500;
+            }
+            .up{
+                opacity: 0;
+            }
+            .left{
+                background-color: #bd5200;
+            }
+        }
+    }
+
+}
+.ooo-cube{
+    color: rgb(176, 253, 166, 0.1);
+    &:hover,
+    &.ooo-active{
+        .front{
+            background-color: var(--cube-left-bg);
+            transition: all 1s;
+        }
+
+    }
+    >div{
+        border: none;
+        background-color: var(--cube-left-bg);
+        transition: all 1s;
+    }
+    .back{
+        background-color: #f98d01;
+    }
+    .up{
+        background-color: var(--cube-top-bg);
+    }
+    .left{
+        background-color: var(--cube-left-bg);
+    }
+    .front, .right{
+        background-color: var(--cube-front-bg);
+    }
+    .down{
+        background-color: var(--cube-down-bg);
+    }
+}
+.logo-osoco{
+    img{
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.ooo-lightBox{
+    display: block;
+    position:fixed;
+    padding: 1em;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    &.ooo-active{
+        pointer-events: initial;
+        opacity: 1;
+    }
+
+    > div{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 500px;
+        max-height: 500px;
+        background-color: #f2f2f2;
+        color: #072107;
+        padding: calc(2 * var(--font-size-base));
+        border-radius: 4px;
+        border: 1px solid #555;
+        box-shadow: -73px 49px 60px 0px rgba(0,0,0,0.45);
+        &:after,
+        &::before{
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: block;
+            content: "";
+            background-color: #555;
+            width: calc(1.5 * var(--font-size-base));
+            height: 4px;
+            transform: rotate(45deg);
+        }
+        &::before{
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+  
+@keyframes estrella-anima {
+    to {
+      transform: rotate(180deg) translate(0px, 0px);
+    }
+  }
+  
