@@ -11,20 +11,20 @@
     --font-size-base:               16px;
     --cube-size:                    40px;
 
-    --paddin-lightbox:             calc(2 * var(--font-size-base));
+    --paddin-lightbox:             calc(3 * var(--font-size-base)) 0 calc(2 * var(--font-size-base)) calc(2 * var(--font-size-base));
 
     @media (min-width: 660px) and (min-height:660px) {
-        --cube-size:                    75px;
+        --cube-size:                    60px;
     }
     @media (min-width: 800px) and (min-height: 800px) {
-        --cube-size:                    90px;
+        --cube-size:                    75px;
     }
 }
 * {
     box-sizing: border-box; 
   }
 html{
-    background-color: rgb(0,23,33); 
+    background-color: rgb(0,23,33);
 }
 body {
     display: flex;
@@ -38,8 +38,15 @@ body {
     padding: 1em;
     background-image: url(../images/luces.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    overflow-x: hidden;
+    transition: all 2s ease-in;
+    &.ooo-inGame{
+        background-position: 0 calc(-2 * 101vh);
+        transition: all 2s ease-in;
+    }
     &.ooo-active{
-        overflow: hidden;
         .ooo-cube{
             pointer-events: none;
         }
@@ -60,19 +67,29 @@ h2{
         font-family: 'montserrat_alternatesbold';
     }
 }
+.ooo-decora{
+    overflow: hidden;
+    width: 100%;
+}
 .ooo-content{
     text-align: center;
 }
 .ooo-container-3D {
-    width: 100vw;
-    overflow: hidden;
 	position: relative;
 	perspective: 3000px;
 	transform-style: preserve-3d;
 	display: flex;
+    margin: 0;
+    padding: 0;
 	padding-top: calc(var(--cube-size) * 4.2);
     margin-bottom: calc(var(--cube-size) * -2.5);
     z-index: 1;
+    opacity: 1;
+    transition: all 2s ease-in;
+    .ooo-inGame &{
+        opacity: 0;
+        transition: all 2s ease-in;
+    }
 }
 .ooo-star{
     position: relative;
@@ -99,16 +116,22 @@ h2{
         }
         font-size: var(--font-size-base);
         cursor: pointer;
+        &.ooo-openBox.ooo-active{
+            pointer-events: none;
+            .gift-content{
+                opacity: 0;
+            }
+        }
         > div.gift-content{
             transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
             background-color: #f2f2f2;
             padding: 1em;
             font-size: 8px;
             @media (min-width: 660px) {
-                font-size: 13px;
+                font-size: 10px;
             }
             @media (min-width: 800px) {
-                font-size: var(--font-size-base);
+                font-size: 13;
             }
             opacity: 0;
         }
@@ -291,7 +314,8 @@ h2{
 }
 
 .ooo-lightBox{
-    display: block;
+    display: flex;
+    justify-content: flex-end;
     position:fixed;
     padding: 1em;
     top: 0;
@@ -308,16 +332,18 @@ h2{
 
     > div{
         position: relative;
-        width: 100%;
-        height: 100%;
+        display: none;
         max-width: 500px;
         max-height: 500px;
+        width: 100%;
+        height: 100%;
         background-color: #f2f2f2;
         color: #072107;
-        padding: var(--paddin-lightbox) 0 var(--paddin-lightbox) var(--paddin-lightbox);
+        padding: var(--paddin-lightbox);
         border-radius: 4px;
         border: 1px solid #555;
         box-shadow: -73px 49px 60px 0px rgba(0,0,0,0.45);
+        &.ooo-active{display: block;}
         &:after,
         &::before{
             cursor: pointer;
@@ -337,8 +363,22 @@ h2{
         .ooo-scroll{
             overflow: auto;
             max-height: 100%;
-            padding-right: var(--paddin-lightbox);
+            padding-right: calc(3 * var(--font-size-base));
         }
+    }
+}
+#ooo-game{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    display: none;
+    &.ooo-active{
+        display: flex;
     }
 }
 
