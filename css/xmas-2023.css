@@ -425,7 +425,8 @@ template {
   --color-up-hover: #f98d01;
   --color-text: #888;
   --font-size-base: 16px;
-  --cube-size: 50px;
+  --cube-size: 40px;
+  --paddin-lightbox: calc(2 * var(--font-size-base));
 }
 @media (min-width: 660px) and (min-height: 660px) {
   :root {
@@ -459,6 +460,9 @@ body {
   background-image: url(../images/luces.png);
   background-size: cover;
 }
+body.ooo-active {
+  overflow: hidden;
+}
 body.ooo-active .ooo-cube {
   pointer-events: none;
 }
@@ -485,12 +489,14 @@ h2 strong {
 }
 
 .ooo-container-3D {
+  width: 100vw;
+  overflow: hidden;
   position: relative;
   perspective: 3000px;
   transform-style: preserve-3d;
   display: flex;
-  padding-top: calc(var(--cube-size) * 3.2);
-  margin-bottom: calc(var(--cube-size) * -2);
+  padding-top: calc(var(--cube-size) * 4.2);
+  margin-bottom: calc(var(--cube-size) * -2.5);
   z-index: 1;
 }
 
@@ -510,14 +516,17 @@ h2 strong {
   transform: rotateX(40deg) rotateZ(-45deg);
   transform-style: preserve-3d;
   display: grid;
-  grid-template-columns: repeat(5, var(--cube-size));
-  grid-template-rows: repeat(5, var(--cube-size));
+  grid-template-columns: repeat(6, var(--cube-size));
+  grid-template-rows: repeat(6, var(--cube-size));
   margin: auto;
 }
 .ooo-tree .ooo-cube {
   color: var(--color-text);
   font-size: var(--font-size-base);
   cursor: pointer;
+}
+.ooo-tree .ooo-cube .up {
+  color: #fff;
 }
 .ooo-tree .ooo-cube > div.gift-content {
   transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
@@ -540,169 +549,262 @@ h2 strong {
   transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
   opacity: 1;
 }
-.ooo-tree > div:nth-child(5) {
+.ooo-tree > div:nth-child(6) {
   grid-column-start: 2;
 }
-.ooo-tree > div:nth-child(9) {
+.ooo-tree > div:nth-child(11) {
   grid-column-start: 3;
 }
-.ooo-tree > div:nth-child(12) {
+.ooo-tree > div:nth-child(15) {
   grid-column-start: 4;
 }
-.ooo-tree > div:nth-child(14) {
+.ooo-tree > div:nth-child(18) {
   grid-column-start: 5;
 }
-.ooo-tree > div:nth-child(14) {
-  grid-column-start: 5;
+.ooo-tree > div:nth-child(20) {
+  grid-column-start: 6;
+}
+.ooo-tree > div:nth-child(5),
+.ooo-tree > div:nth-child(10) {
+  transform: translateZ(calc(5 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(5):hover, .ooo-tree > div:nth-child(5).ooo-active,
+.ooo-tree > div:nth-child(10):hover,
+.ooo-tree > div:nth-child(10).ooo-active {
+  transform: rotate(90deg) translateZ(calc(5 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(5):hover .back, .ooo-tree > div:nth-child(5).ooo-active .back,
+.ooo-tree > div:nth-child(10):hover .back,
+.ooo-tree > div:nth-child(10).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(5):hover .up, .ooo-tree > div:nth-child(5).ooo-active .up,
+.ooo-tree > div:nth-child(10):hover .up,
+.ooo-tree > div:nth-child(10).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(5):hover .left, .ooo-tree > div:nth-child(5).ooo-active .left,
+.ooo-tree > div:nth-child(10):hover .left,
+.ooo-tree > div:nth-child(10).ooo-active .left {
+  background-color: #bd5200;
 }
 .ooo-tree > div:nth-child(4),
-.ooo-tree > div:nth-child(8) {
+.ooo-tree > div:nth-child(9),
+.ooo-tree > div:nth-child(14) {
   transform: translateZ(calc(4 * var(--cube-size)));
 }
 .ooo-tree > div:nth-child(4):hover, .ooo-tree > div:nth-child(4).ooo-active,
-.ooo-tree > div:nth-child(8):hover,
-.ooo-tree > div:nth-child(8).ooo-active {
+.ooo-tree > div:nth-child(9):hover,
+.ooo-tree > div:nth-child(9).ooo-active,
+.ooo-tree > div:nth-child(14):hover,
+.ooo-tree > div:nth-child(14).ooo-active {
   transform: rotate(90deg) translateZ(calc(4 * var(--cube-size)));
 }
 .ooo-tree > div:nth-child(4):hover .back, .ooo-tree > div:nth-child(4).ooo-active .back,
-.ooo-tree > div:nth-child(8):hover .back,
-.ooo-tree > div:nth-child(8).ooo-active .back {
-  background-color: #e86500;
-}
-.ooo-tree > div:nth-child(4):hover .up, .ooo-tree > div:nth-child(4).ooo-active .up,
-.ooo-tree > div:nth-child(8):hover .up,
-.ooo-tree > div:nth-child(8).ooo-active .up {
-  opacity: 0;
-}
-.ooo-tree > div:nth-child(4):hover .left, .ooo-tree > div:nth-child(4).ooo-active .left,
-.ooo-tree > div:nth-child(8):hover .left,
-.ooo-tree > div:nth-child(8).ooo-active .left {
-  background-color: #bd5200;
-}
-.ooo-tree > div:nth-child(3),
-.ooo-tree > div:nth-child(7),
-.ooo-tree > div:nth-child(11) {
-  transform: translateZ(calc(3 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(3):hover, .ooo-tree > div:nth-child(3).ooo-active,
-.ooo-tree > div:nth-child(7):hover,
-.ooo-tree > div:nth-child(7).ooo-active,
-.ooo-tree > div:nth-child(11):hover,
-.ooo-tree > div:nth-child(11).ooo-active {
-  transform: rotate(90deg) translateZ(calc(3 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(3):hover .back, .ooo-tree > div:nth-child(3).ooo-active .back,
-.ooo-tree > div:nth-child(7):hover .back,
-.ooo-tree > div:nth-child(7).ooo-active .back,
-.ooo-tree > div:nth-child(11):hover .back,
-.ooo-tree > div:nth-child(11).ooo-active .back {
-  background-color: #e86500;
-}
-.ooo-tree > div:nth-child(3):hover .up, .ooo-tree > div:nth-child(3).ooo-active .up,
-.ooo-tree > div:nth-child(7):hover .up,
-.ooo-tree > div:nth-child(7).ooo-active .up,
-.ooo-tree > div:nth-child(11):hover .up,
-.ooo-tree > div:nth-child(11).ooo-active .up {
-  opacity: 0;
-}
-.ooo-tree > div:nth-child(3):hover .left, .ooo-tree > div:nth-child(3).ooo-active .left,
-.ooo-tree > div:nth-child(7):hover .left,
-.ooo-tree > div:nth-child(7).ooo-active .left,
-.ooo-tree > div:nth-child(11):hover .left,
-.ooo-tree > div:nth-child(11).ooo-active .left {
-  background-color: #bd5200;
-}
-.ooo-tree > div:nth-child(2),
-.ooo-tree > div:nth-child(6),
-.ooo-tree > div:nth-child(10),
-.ooo-tree > div:nth-child(13) {
-  transform: translateZ(calc(2 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(2):hover, .ooo-tree > div:nth-child(2).ooo-active,
-.ooo-tree > div:nth-child(6):hover,
-.ooo-tree > div:nth-child(6).ooo-active,
-.ooo-tree > div:nth-child(10):hover,
-.ooo-tree > div:nth-child(10).ooo-active,
-.ooo-tree > div:nth-child(13):hover,
-.ooo-tree > div:nth-child(13).ooo-active {
-  transform: rotate(90deg) translateZ(calc(2 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(2):hover .back, .ooo-tree > div:nth-child(2).ooo-active .back,
-.ooo-tree > div:nth-child(6):hover .back,
-.ooo-tree > div:nth-child(6).ooo-active .back,
-.ooo-tree > div:nth-child(10):hover .back,
-.ooo-tree > div:nth-child(10).ooo-active .back,
-.ooo-tree > div:nth-child(13):hover .back,
-.ooo-tree > div:nth-child(13).ooo-active .back {
-  background-color: #e86500;
-}
-.ooo-tree > div:nth-child(2):hover .up, .ooo-tree > div:nth-child(2).ooo-active .up,
-.ooo-tree > div:nth-child(6):hover .up,
-.ooo-tree > div:nth-child(6).ooo-active .up,
-.ooo-tree > div:nth-child(10):hover .up,
-.ooo-tree > div:nth-child(10).ooo-active .up,
-.ooo-tree > div:nth-child(13):hover .up,
-.ooo-tree > div:nth-child(13).ooo-active .up {
-  opacity: 0;
-}
-.ooo-tree > div:nth-child(2):hover .left, .ooo-tree > div:nth-child(2).ooo-active .left,
-.ooo-tree > div:nth-child(6):hover .left,
-.ooo-tree > div:nth-child(6).ooo-active .left,
-.ooo-tree > div:nth-child(10):hover .left,
-.ooo-tree > div:nth-child(10).ooo-active .left,
-.ooo-tree > div:nth-child(13):hover .left,
-.ooo-tree > div:nth-child(13).ooo-active .left {
-  background-color: #bd5200;
-}
-.ooo-tree > div:nth-child(1),
-.ooo-tree > div:nth-child(5),
-.ooo-tree > div:nth-child(9),
-.ooo-tree > div:nth-child(12),
-.ooo-tree > div:nth-child(14) {
-  transform: translateZ(calc(1 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(1):hover, .ooo-tree > div:nth-child(1).ooo-active,
-.ooo-tree > div:nth-child(5):hover,
-.ooo-tree > div:nth-child(5).ooo-active,
-.ooo-tree > div:nth-child(9):hover,
-.ooo-tree > div:nth-child(9).ooo-active,
-.ooo-tree > div:nth-child(12):hover,
-.ooo-tree > div:nth-child(12).ooo-active,
-.ooo-tree > div:nth-child(14):hover,
-.ooo-tree > div:nth-child(14).ooo-active {
-  transform: rotate(90deg) translateZ(calc(1 * var(--cube-size)));
-}
-.ooo-tree > div:nth-child(1):hover .back, .ooo-tree > div:nth-child(1).ooo-active .back,
-.ooo-tree > div:nth-child(5):hover .back,
-.ooo-tree > div:nth-child(5).ooo-active .back,
 .ooo-tree > div:nth-child(9):hover .back,
 .ooo-tree > div:nth-child(9).ooo-active .back,
-.ooo-tree > div:nth-child(12):hover .back,
-.ooo-tree > div:nth-child(12).ooo-active .back,
 .ooo-tree > div:nth-child(14):hover .back,
 .ooo-tree > div:nth-child(14).ooo-active .back {
   background-color: #e86500;
 }
-.ooo-tree > div:nth-child(1):hover .up, .ooo-tree > div:nth-child(1).ooo-active .up,
-.ooo-tree > div:nth-child(5):hover .up,
-.ooo-tree > div:nth-child(5).ooo-active .up,
+.ooo-tree > div:nth-child(4):hover .up, .ooo-tree > div:nth-child(4).ooo-active .up,
 .ooo-tree > div:nth-child(9):hover .up,
 .ooo-tree > div:nth-child(9).ooo-active .up,
-.ooo-tree > div:nth-child(12):hover .up,
-.ooo-tree > div:nth-child(12).ooo-active .up,
 .ooo-tree > div:nth-child(14):hover .up,
 .ooo-tree > div:nth-child(14).ooo-active .up {
   opacity: 0;
 }
-.ooo-tree > div:nth-child(1):hover .left, .ooo-tree > div:nth-child(1).ooo-active .left,
-.ooo-tree > div:nth-child(5):hover .left,
-.ooo-tree > div:nth-child(5).ooo-active .left,
+.ooo-tree > div:nth-child(4):hover .left, .ooo-tree > div:nth-child(4).ooo-active .left,
 .ooo-tree > div:nth-child(9):hover .left,
 .ooo-tree > div:nth-child(9).ooo-active .left,
-.ooo-tree > div:nth-child(12):hover .left,
-.ooo-tree > div:nth-child(12).ooo-active .left,
 .ooo-tree > div:nth-child(14):hover .left,
 .ooo-tree > div:nth-child(14).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(4),
+.ooo-tree > div:nth-child(9),
+.ooo-tree > div:nth-child(14) {
+  transform: translateZ(calc(4 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(4):hover, .ooo-tree > div:nth-child(4).ooo-active,
+.ooo-tree > div:nth-child(9):hover,
+.ooo-tree > div:nth-child(9).ooo-active,
+.ooo-tree > div:nth-child(14):hover,
+.ooo-tree > div:nth-child(14).ooo-active {
+  transform: rotate(90deg) translateZ(calc(4 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(4):hover .back, .ooo-tree > div:nth-child(4).ooo-active .back,
+.ooo-tree > div:nth-child(9):hover .back,
+.ooo-tree > div:nth-child(9).ooo-active .back,
+.ooo-tree > div:nth-child(14):hover .back,
+.ooo-tree > div:nth-child(14).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(4):hover .up, .ooo-tree > div:nth-child(4).ooo-active .up,
+.ooo-tree > div:nth-child(9):hover .up,
+.ooo-tree > div:nth-child(9).ooo-active .up,
+.ooo-tree > div:nth-child(14):hover .up,
+.ooo-tree > div:nth-child(14).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(4):hover .left, .ooo-tree > div:nth-child(4).ooo-active .left,
+.ooo-tree > div:nth-child(9):hover .left,
+.ooo-tree > div:nth-child(9).ooo-active .left,
+.ooo-tree > div:nth-child(14):hover .left,
+.ooo-tree > div:nth-child(14).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(3),
+.ooo-tree > div:nth-child(8),
+.ooo-tree > div:nth-child(13),
+.ooo-tree > div:nth-child(17) {
+  transform: translateZ(calc(3 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(3):hover, .ooo-tree > div:nth-child(3).ooo-active,
+.ooo-tree > div:nth-child(8):hover,
+.ooo-tree > div:nth-child(8).ooo-active,
+.ooo-tree > div:nth-child(13):hover,
+.ooo-tree > div:nth-child(13).ooo-active,
+.ooo-tree > div:nth-child(17):hover,
+.ooo-tree > div:nth-child(17).ooo-active {
+  transform: rotate(90deg) translateZ(calc(3 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(3):hover .back, .ooo-tree > div:nth-child(3).ooo-active .back,
+.ooo-tree > div:nth-child(8):hover .back,
+.ooo-tree > div:nth-child(8).ooo-active .back,
+.ooo-tree > div:nth-child(13):hover .back,
+.ooo-tree > div:nth-child(13).ooo-active .back,
+.ooo-tree > div:nth-child(17):hover .back,
+.ooo-tree > div:nth-child(17).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(3):hover .up, .ooo-tree > div:nth-child(3).ooo-active .up,
+.ooo-tree > div:nth-child(8):hover .up,
+.ooo-tree > div:nth-child(8).ooo-active .up,
+.ooo-tree > div:nth-child(13):hover .up,
+.ooo-tree > div:nth-child(13).ooo-active .up,
+.ooo-tree > div:nth-child(17):hover .up,
+.ooo-tree > div:nth-child(17).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(3):hover .left, .ooo-tree > div:nth-child(3).ooo-active .left,
+.ooo-tree > div:nth-child(8):hover .left,
+.ooo-tree > div:nth-child(8).ooo-active .left,
+.ooo-tree > div:nth-child(13):hover .left,
+.ooo-tree > div:nth-child(13).ooo-active .left,
+.ooo-tree > div:nth-child(17):hover .left,
+.ooo-tree > div:nth-child(17).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(2),
+.ooo-tree > div:nth-child(7),
+.ooo-tree > div:nth-child(12),
+.ooo-tree > div:nth-child(16),
+.ooo-tree > div:nth-child(19) {
+  transform: translateZ(calc(2 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(2):hover, .ooo-tree > div:nth-child(2).ooo-active,
+.ooo-tree > div:nth-child(7):hover,
+.ooo-tree > div:nth-child(7).ooo-active,
+.ooo-tree > div:nth-child(12):hover,
+.ooo-tree > div:nth-child(12).ooo-active,
+.ooo-tree > div:nth-child(16):hover,
+.ooo-tree > div:nth-child(16).ooo-active,
+.ooo-tree > div:nth-child(19):hover,
+.ooo-tree > div:nth-child(19).ooo-active {
+  transform: rotate(90deg) translateZ(calc(2 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(2):hover .back, .ooo-tree > div:nth-child(2).ooo-active .back,
+.ooo-tree > div:nth-child(7):hover .back,
+.ooo-tree > div:nth-child(7).ooo-active .back,
+.ooo-tree > div:nth-child(12):hover .back,
+.ooo-tree > div:nth-child(12).ooo-active .back,
+.ooo-tree > div:nth-child(16):hover .back,
+.ooo-tree > div:nth-child(16).ooo-active .back,
+.ooo-tree > div:nth-child(19):hover .back,
+.ooo-tree > div:nth-child(19).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(2):hover .up, .ooo-tree > div:nth-child(2).ooo-active .up,
+.ooo-tree > div:nth-child(7):hover .up,
+.ooo-tree > div:nth-child(7).ooo-active .up,
+.ooo-tree > div:nth-child(12):hover .up,
+.ooo-tree > div:nth-child(12).ooo-active .up,
+.ooo-tree > div:nth-child(16):hover .up,
+.ooo-tree > div:nth-child(16).ooo-active .up,
+.ooo-tree > div:nth-child(19):hover .up,
+.ooo-tree > div:nth-child(19).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(2):hover .left, .ooo-tree > div:nth-child(2).ooo-active .left,
+.ooo-tree > div:nth-child(7):hover .left,
+.ooo-tree > div:nth-child(7).ooo-active .left,
+.ooo-tree > div:nth-child(12):hover .left,
+.ooo-tree > div:nth-child(12).ooo-active .left,
+.ooo-tree > div:nth-child(16):hover .left,
+.ooo-tree > div:nth-child(16).ooo-active .left,
+.ooo-tree > div:nth-child(19):hover .left,
+.ooo-tree > div:nth-child(19).ooo-active .left {
+  background-color: #bd5200;
+}
+.ooo-tree > div:nth-child(1),
+.ooo-tree > div:nth-child(6),
+.ooo-tree > div:nth-child(11),
+.ooo-tree > div:nth-child(15),
+.ooo-tree > div:nth-child(18),
+.ooo-tree > div:nth-child(20) {
+  transform: translateZ(calc(1 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(1):hover, .ooo-tree > div:nth-child(1).ooo-active,
+.ooo-tree > div:nth-child(6):hover,
+.ooo-tree > div:nth-child(6).ooo-active,
+.ooo-tree > div:nth-child(11):hover,
+.ooo-tree > div:nth-child(11).ooo-active,
+.ooo-tree > div:nth-child(15):hover,
+.ooo-tree > div:nth-child(15).ooo-active,
+.ooo-tree > div:nth-child(18):hover,
+.ooo-tree > div:nth-child(18).ooo-active,
+.ooo-tree > div:nth-child(20):hover,
+.ooo-tree > div:nth-child(20).ooo-active {
+  transform: rotate(90deg) translateZ(calc(1 * var(--cube-size)));
+}
+.ooo-tree > div:nth-child(1):hover .back, .ooo-tree > div:nth-child(1).ooo-active .back,
+.ooo-tree > div:nth-child(6):hover .back,
+.ooo-tree > div:nth-child(6).ooo-active .back,
+.ooo-tree > div:nth-child(11):hover .back,
+.ooo-tree > div:nth-child(11).ooo-active .back,
+.ooo-tree > div:nth-child(15):hover .back,
+.ooo-tree > div:nth-child(15).ooo-active .back,
+.ooo-tree > div:nth-child(18):hover .back,
+.ooo-tree > div:nth-child(18).ooo-active .back,
+.ooo-tree > div:nth-child(20):hover .back,
+.ooo-tree > div:nth-child(20).ooo-active .back {
+  background-color: #e86500;
+}
+.ooo-tree > div:nth-child(1):hover .up, .ooo-tree > div:nth-child(1).ooo-active .up,
+.ooo-tree > div:nth-child(6):hover .up,
+.ooo-tree > div:nth-child(6).ooo-active .up,
+.ooo-tree > div:nth-child(11):hover .up,
+.ooo-tree > div:nth-child(11).ooo-active .up,
+.ooo-tree > div:nth-child(15):hover .up,
+.ooo-tree > div:nth-child(15).ooo-active .up,
+.ooo-tree > div:nth-child(18):hover .up,
+.ooo-tree > div:nth-child(18).ooo-active .up,
+.ooo-tree > div:nth-child(20):hover .up,
+.ooo-tree > div:nth-child(20).ooo-active .up {
+  opacity: 0;
+}
+.ooo-tree > div:nth-child(1):hover .left, .ooo-tree > div:nth-child(1).ooo-active .left,
+.ooo-tree > div:nth-child(6):hover .left,
+.ooo-tree > div:nth-child(6).ooo-active .left,
+.ooo-tree > div:nth-child(11):hover .left,
+.ooo-tree > div:nth-child(11).ooo-active .left,
+.ooo-tree > div:nth-child(15):hover .left,
+.ooo-tree > div:nth-child(15).ooo-active .left,
+.ooo-tree > div:nth-child(18):hover .left,
+.ooo-tree > div:nth-child(18).ooo-active .left,
+.ooo-tree > div:nth-child(20):hover .left,
+.ooo-tree > div:nth-child(20).ooo-active .left {
   background-color: #bd5200;
 }
 
@@ -735,7 +837,7 @@ h2 strong {
 }
 
 .logo-osoco img {
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
   display: block;
 }
@@ -764,7 +866,7 @@ h2 strong {
   max-height: 500px;
   background-color: #f2f2f2;
   color: #072107;
-  padding: calc(2 * var(--font-size-base));
+  padding: var(--paddin-lightbox) 0 var(--paddin-lightbox) var(--paddin-lightbox);
   border-radius: 4px;
   border: 1px solid #555;
   box-shadow: -73px 49px 60px 0px rgba(0, 0, 0, 0.45);
@@ -783,6 +885,11 @@ h2 strong {
 }
 .ooo-lightBox > div::before {
   transform: rotate(-45deg);
+}
+.ooo-lightBox > div .ooo-scroll {
+  overflow: auto;
+  max-height: 100%;
+  padding-right: var(--paddin-lightbox);
 }
 
 @-webkit-keyframes estrella-anima {
