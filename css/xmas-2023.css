@@ -489,9 +489,136 @@ h2 strong {
   font-family: "montserrat_alternatesbold";
 }
 
+.ooo-animaLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+  transform: scale(1);
+  transition: all 1s ease;
+}
+.ooo-animaLogo.ooo-off {
+  transform: scale(50);
+}
+.ooo-animaLogo .ooo-anima-bg {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  background-image: url(/images/anima/fondo-logo.svg);
+  background-size: 180px;
+  background-position: 50%;
+  transition: all 1s ease-in-out;
+  opacity: 1;
+}
+.ooo-animaLogo .ooo-anima-bg.ooo-off {
+  transition: all 1s ease-in-out;
+  opacity: 0;
+}
+.ooo-animaLogo .ooo-logo {
+  z-index: 2;
+  position: relative;
+  width: 300px;
+  height: 162px;
+  margin-top: 43px;
+}
+.ooo-animaLogo .ooo-logo > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo01 {
+  width: 300px;
+  height: 173px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo01.ooo-active {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  transition-delay: 2s;
+  z-index: 2;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo-20 {
+  z-index: 2;
+  width: 212px;
+  height: 162px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo-20.ooo-active {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  transition-delay: 1s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo-20.ooo-position {
+  z-index: 2;
+  height: 35px;
+  margin-left: 135px;
+  margin-top: 40px;
+  transition: all 1s ease-in-out;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo-years {
+  width: 300px;
+  height: 162px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo-years.ooo-active {
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  transition-delay: 1s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo02, .ooo-animaLogo .ooo-logo > div.ooo-logo03, .ooo-animaLogo .ooo-logo > div.ooo-logo04, .ooo-animaLogo .ooo-logo > div.ooo-logo05, .ooo-animaLogo .ooo-logo > div.ooo-logo06 {
+  width: 300px;
+  height: 162px;
+  margin-top: 40px;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo02.ooo-active, .ooo-animaLogo .ooo-logo > div.ooo-logo03.ooo-active, .ooo-animaLogo .ooo-logo > div.ooo-logo04.ooo-active, .ooo-animaLogo .ooo-logo > div.ooo-logo05.ooo-active, .ooo-animaLogo .ooo-logo > div.ooo-logo06.ooo-active {
+  margin-top: 0;
+  transition: all 1s ease-in-out;
+  opacity: 1;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo02.ooo-active {
+  transition-delay: 0.25s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo03.ooo-active {
+  transition-delay: 0.5s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo04.ooo-active {
+  transition-delay: 0.75s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo05.ooo-active {
+  transition-delay: 1s;
+}
+.ooo-animaLogo .ooo-logo > div.ooo-logo06.ooo-active {
+  transition-delay: 1.25s;
+}
+.ooo-animaLogo .ooo-logo img {
+  width: 100%;
+  height: 100%;
+}
+
 .ooo-decora {
+  opacity: 0;
   overflow: hidden;
   width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+.ooo-decora.ooo-active {
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
 }
 
 .ooo-content {

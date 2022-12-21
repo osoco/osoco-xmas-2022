@@ -1,15 +1,45 @@
 // FUNCIONES
+    // 00 - Animación inicial
     // 01 - Mostrar Tarjeta
     // 02 - Cerrar Tarjeta
     // 03 - Lightbox
     // 04 - Abrir Juego
 
 //  DISPARADORES
+    // 00 - Animación inicial
     // 01 - Mostrar Tarjeta
     // 02 - Cerrar Tarjeta
 // ------------------------------------------ 
 
 $(function(){
+
+    const iniciarAnimacion = () => {
+        $('.ooo-anima-bg').removeClass('ooo-off');
+        $('.ooo-logo-20').addClass('ooo-active');
+        $('.ooo-logo-years').addClass('ooo-active');
+        $('.ooo-logo01').addClass('ooo-active');
+        setTimeout( function() {
+            $('.ooo-logo-years').removeClass('ooo-active');
+            $('.ooo-anima-bg').addClass('ooo-off');
+            $('.ooo-logo-20').addClass('ooo-position');
+        }, 3000);
+        setTimeout( function() {
+            $('.ooo-logo02').addClass('ooo-active');
+            $('.ooo-logo03').addClass('ooo-active');
+            $('.ooo-logo04').addClass('ooo-active');
+            $('.ooo-logo05').addClass('ooo-active');
+            $('.ooo-logo06').addClass('ooo-active');
+        
+        }, 4000);
+        setTimeout( function() {
+            $('.ooo-animaLogo').addClass('ooo-off');
+            $('.ooo-decora').addClass('ooo-active');
+        }, 7000);
+        setTimeout( function() {
+            $('.ooo-animaLogo').hide();
+        }, 8000);
+
+    }
     
     // 01 - Mostrar Tarjeta
     const showCard = (thisBox) => {
@@ -59,6 +89,9 @@ $(function(){
 
 // -----------------------------------------------------------------------------------------------------------
 //  DISPARADORES
+    // 00 - Animación inicial
+    iniciarAnimacion();
+
     // 01- Mostrar Tarjeta
     $(".js-openCard").click(function () {
         let thisBox = $(this);
