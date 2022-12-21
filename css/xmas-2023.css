@@ -488,6 +488,9 @@ h2 strong {
   display: block;
   font-family: "montserrat_alternatesbold";
 }
+h2 strong img {
+  height: 0.8em;
+}
 
 .ooo-animaLogo {
   display: flex;
