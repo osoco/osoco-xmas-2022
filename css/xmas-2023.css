@@ -418,6 +418,7 @@ template {
   font-style: normal;
 }
 :root {
+  --bg-color: #001721;
   --cube-top-bg: #3A931D;
   --cube-left-bg: #072107;
   --cube-front-bg: #115911;
@@ -426,7 +427,7 @@ template {
   --color-text: #888;
   --font-size-base: 16px;
   --cube-size: 40px;
-  --paddin-lightbox: calc(3 * var(--font-size-base)) 0 calc(2 * var(--font-size-base)) calc(2 * var(--font-size-base));
+  --paddin-lightbox: calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 }
 @media (min-width: 660px) and (min-height: 660px) {
   :root {
@@ -444,7 +445,7 @@ template {
 }
 
 html {
-  background-color: rgb(0, 23, 33);
+  background-color: var(--bg-color);
 }
 
 body {
@@ -490,6 +491,14 @@ h2 strong {
 }
 h2 strong img {
   height: 0.8em;
+}
+
+a {
+  color: var(--color-text);
+}
+
+img {
+  max-width: 100%;
 }
 
 .ooo-animaLogo {
@@ -674,17 +683,12 @@ h2 strong img {
 .ooo-tree .ooo-cube .up {
   color: #fff;
 }
-.ooo-tree .ooo-cube.ooo-openBox.ooo-active {
-  pointer-events: none;
-}
-.ooo-tree .ooo-cube.ooo-openBox.ooo-active .gift-content {
-  opacity: 0;
-}
 .ooo-tree .ooo-cube > div.gift-content {
   transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
   background-color: #f2f2f2;
   padding: 1em;
   font-size: 8px;
+  border: 3px solid #fff;
   opacity: 0;
 }
 @media (min-width: 660px) {
@@ -700,6 +704,11 @@ h2 strong img {
 .ooo-tree .ooo-cube:hover > div.gift-content, .ooo-tree .ooo-cube.ooo-active > div.gift-content {
   transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
   opacity: 1;
+}
+.ooo-tree .ooo-cube[data-cube=c-1] .gift-content {
+  background-image: url(/images/tarjetas/gigantas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .ooo-tree > div:nth-child(6) {
   grid-column-start: 2;
@@ -1010,6 +1019,7 @@ h2 strong img {
 .ooo-lightBox.ooo-active {
   pointer-events: initial;
   opacity: 1;
+  background-color: rgba(26, 6, 1, 0.6);
 }
 .ooo-lightBox > div {
   position: relative;
@@ -1046,7 +1056,11 @@ h2 strong img {
 .ooo-lightBox > div .ooo-scroll {
   overflow: auto;
   max-height: 100%;
-  padding-right: calc(3 * var(--font-size-base));
+  padding-right: calc(2 * var(--font-size-base));
+}
+.ooo-lightBox > div .ooo-scroll h2 {
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 #ooo-game {

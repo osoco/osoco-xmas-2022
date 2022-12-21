@@ -2,6 +2,7 @@
 @import 'components/cube';
 @import 'montserratalternates';
 :root{
+    --bg-color:                   #001721;  
     --cube-top-bg:                #3A931D; 
     --cube-left-bg:               #072107;
     --cube-front-bg:              #115911;
@@ -11,7 +12,7 @@
     --font-size-base:               16px;
     --cube-size:                    40px;
 
-    --paddin-lightbox:             calc(3 * var(--font-size-base)) 0 calc(2 * var(--font-size-base)) calc(2 * var(--font-size-base));
+    --paddin-lightbox:             calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 
     @media (min-width: 660px) and (min-height:660px) {
         --cube-size:                    60px;
@@ -24,7 +25,7 @@
     box-sizing: border-box; 
   }
 html{
-    background-color: rgb(0,23,33);
+    background-color: var(--bg-color);
 }
 body {
     display: flex;
@@ -69,6 +70,12 @@ h2{
             height: .8em;
         }
     }
+}
+a{
+    color: var(--color-text)
+}
+img{
+    max-width: 100%;
 }
 .ooo-animaLogo{
     display: flex;
@@ -240,17 +247,18 @@ h2{
         }
         font-size: var(--font-size-base);
         cursor: pointer;
-        &.ooo-openBox.ooo-active{
-            pointer-events: none;
-            .gift-content{
-                opacity: 0;
-            }
-        }
+        // &.ooo-openBox.ooo-active{
+        //     pointer-events: none;
+        //     .gift-content{
+        //         opacity: 0;
+        //     }
+        // }
         > div.gift-content{
             transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
             background-color: #f2f2f2;
             padding: 1em;
             font-size: 8px;
+            border: 3px solid #fff;
             @media (min-width: 660px) {
                 font-size: 10px;
             }
@@ -263,6 +271,12 @@ h2{
         &.ooo-active > div.gift-content{
             transform: rotateX(-90deg) translateZ(0) translateY(calc( -1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
             opacity: 1;
+        }
+        // tarjetas
+        &[data-cube='c-1'] .gift-content{
+            background-image: url(/images/tarjetas/gigantas.png);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     }
     > div:nth-child(6){
@@ -452,6 +466,7 @@ h2{
     &.ooo-active{
         pointer-events: initial;
         opacity: 1;
+        background-color: rgba($color: #1a0601, $alpha: 0.6);
     }
 
     > div{
@@ -487,7 +502,11 @@ h2{
         .ooo-scroll{
             overflow: auto;
             max-height: 100%;
-            padding-right: calc(3 * var(--font-size-base));
+            padding-right: calc(2 * var(--font-size-base));
+            h2{
+                margin-top: 1em;
+                margin-bottom: 0;
+            }
         }
     }
 }

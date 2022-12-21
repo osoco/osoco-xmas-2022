@@ -102,4 +102,10 @@ $(function(){
     $(".js-lightBox").click(function () {
         closeCad();
     });
+
+    $(document).on('keydown', function(event) {
+        if (event.key == "Escape") {
+            closeCad();
+        }
+    });
 });
