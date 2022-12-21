@@ -444,6 +444,8 @@ img{
     }
 }
 .logo-osoco{
+    position: relative;
+    z-index: 3;
     img{
         width: 150px;
         margin: 0 auto;
