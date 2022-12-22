@@ -487,7 +487,11 @@ img{
         opacity: 1;
         background-color: rgba($color: #031828, $alpha: 0.6);
     }
-
+    iframe{
+        display: block;
+        width: 100%;
+        height: 419px;
+    }
     > div{
         position: relative;
         display: none;
