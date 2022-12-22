@@ -12,6 +12,7 @@
     --font-size-base:               16px;
     --cube-size:                    40px;
 
+    --paddin:                      var(--font-size-base);
     --paddin-lightbox:             calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 
     @media (min-width: 660px) and (min-height:660px) {
@@ -272,8 +273,13 @@ img{
             opacity: 1;
         }
         // tarjetas
-        &[data-cube='c-1'] .gift-content{
+        &[data-cube='c-5'] .gift-content{
             background-image: url(/images/tarjetas/gigantas.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &[data-cube='c-20'] .gift-content{
+            background-image: url(/images/tarjetas/osoco_portada1.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -521,8 +527,13 @@ img{
             max-height: 100%;
             padding-right: calc(2 * var(--font-size-base));
             h2{
-                margin-top: 1em;
-                margin-bottom: 0;
+                margin: 0;
+                &:first-child{
+                    margin-bottom: var(--paddin);
+                }
+            }
+            img + h2{
+                padding-top: var(--paddin);
             }
         }
     }

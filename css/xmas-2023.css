@@ -427,6 +427,7 @@ template {
   --color-text: #888;
   --font-size-base: 16px;
   --cube-size: 40px;
+  --paddin: var(--font-size-base);
   --paddin-lightbox: calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 }
 @media (min-width: 660px) and (min-height: 660px) {
@@ -708,8 +709,13 @@ img {
   transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
   opacity: 1;
 }
-.ooo-tree .ooo-cube[data-cube=c-1] .gift-content {
+.ooo-tree .ooo-cube[data-cube=c-5] .gift-content {
   background-image: url(/images/tarjetas/gigantas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.ooo-tree .ooo-cube[data-cube=c-20] .gift-content {
+  background-image: url(/images/tarjetas/osoco_portada1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1084,8 +1090,13 @@ img {
   padding-right: calc(2 * var(--font-size-base));
 }
 .ooo-lightBox > div .ooo-scroll h2 {
-  margin-top: 1em;
-  margin-bottom: 0;
+  margin: 0;
+}
+.ooo-lightBox > div .ooo-scroll h2:first-child {
+  margin-bottom: var(--paddin);
+}
+.ooo-lightBox > div .ooo-scroll img + h2 {
+  padding-top: var(--paddin);
 }
 
 #ooo-game {
