@@ -422,6 +422,7 @@ template {
   --cube-top-bg: #3A931D;
   --cube-left-bg: #072107;
   --cube-front-bg: #115911;
+  --color-link: #ff6600;
   --cube-down-bg: #f98d01;
   --color-up-hover: #f98d01;
   --color-text: #888;
@@ -515,7 +516,12 @@ h2 strong img {
 }
 
 a {
-  color: var(--color-text);
+  color: var(--color-link);
+}
+
+hr {
+  height: var(--paddin);
+  border: none;
 }
 
 img {
@@ -531,38 +537,44 @@ img {
 
 .ooo-btn {
   padding: 1rem 2rem;
-  background-color: #ff6600;
+  background-color: var(--color-link);
   color: #fff;
   text-decoration: none;
   border-radius: 2em;
   border: 1px solid #ffbc95;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1);
+}
+.ooo-btn:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
 }
 @media (min-height: 800px) and (min-width: 500px) {
-  .ooo-btn {
+  .ooo-btn.ooo-btn-tree {
     font-size: 20px;
     border-width: 2px;
   }
 }
 @media (min-height: 960px) and (min-width: 665px) {
-  .ooo-btn {
+  .ooo-btn.ooo-btn-tree {
     font-size: 25px;
     border-width: 3px;
   }
 }
 @media (min-height: 1100px) and (min-width: 755px) {
-  .ooo-btn {
+  .ooo-btn.ooo-btn-tree {
     font-size: 30px;
     border-width: 4px;
   }
 }
 @media (min-height: 1300px) and (min-width: 945px) {
-  .ooo-btn {
+  .ooo-btn.ooo-btn-tree {
     font-size: 35px;
     border-width: 5px;
   }
 }
 @media (min-height: 1450px) and (min-width: 1250px) {
-  .ooo-btn {
+  .ooo-btn.ooo-btn-tree {
     font-size: 50px;
     border-width: 7px;
   }
@@ -757,6 +769,7 @@ img {
   transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
   background-color: #f2f2f2;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   padding: 1em;
   font-size: 8px;
@@ -777,11 +790,47 @@ img {
   transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
   opacity: 1;
 }
+.ooo-tree .ooo-cube[data-cube=c-1] .gift-content {
+  background-image: url(../images/tarjetas/conferencias.png);
+}
 .ooo-tree .ooo-cube[data-cube=c-2] .gift-content {
   background-image: url(../images/tarjetas/ddd.png);
 }
+.ooo-tree .ooo-cube[data-cube=c-3] .gift-content {
+  background-image: url(../images/tarjetas/cultura.png);
+}
 .ooo-tree .ooo-cube[data-cube=c-5] .gift-content {
   background-image: url(../images/tarjetas/gigantas.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-6] .gift-content {
+  background-image: url(../images/tarjetas/mob.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-7] .gift-content {
+  background-image: url(../images/tarjetas/oficinas.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-8] .gift-content {
+  background-image: url(../images/tarjetas/trineo.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-9] .gift-content {
+  background-image: url(../images/tarjetas/ruth.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-10] .gift-content {
+  background-image: url(../images/tarjetas/game-cover-15.jpeg);
+}
+.ooo-tree .ooo-cube[data-cube=c-11] .gift-content {
+  background-image: url(../images/tarjetas/comer.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-12] .gift-content {
+  background-image: url(../images/tarjetas/vr.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-13] .gift-content {
+  background-image: url(../images/tarjetas/bkool02.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-14] .gift-content {
+  background-image: url(../images/tarjetas/familias.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-15] .gift-content {
+  background-image: url(../images/tarjetas/desayuno.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-20] .gift-content {
   background-image: url(../images/tarjetas/osoco_portada1.jpg);
