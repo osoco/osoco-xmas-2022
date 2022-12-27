@@ -108,4 +108,8 @@ $(function(){
             closeCad();
         }
     });
+
+    $('#openGame').on('click', function(event) {
+        openGame();
+    });
 });
