@@ -617,6 +617,7 @@
         var mute = document.createElement("button");
         mute.id = 'mute';
         mute.innerText = 'Mute/Play';
+        mute.className = 'ooo-btn';
         document.body.appendChild(mute);
     }
 
