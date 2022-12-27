@@ -390,7 +390,6 @@
     function renderGameOver() {
         if (isGameOver) {
             ctx.save();
-            ctx.fillStyle = GAME.gameOverFgColor;
             ctx.textAlign = "center";            
             ctx.font = (canvas.height / 15) + "px \"Press Start 2P\", sans-serif";
 
@@ -402,8 +401,17 @@
             ctx.fillText("Game Over", canvas.width / 2 + 2, canvas.height / 2);
 
             ctx.font = (canvas.height / 35) + "px \"Press Start 2P\", sans-serif";
-            ctx.fillStyle = 'white';
-            ctx.fillText("Pulsa espacio para otra partida", canvas.width / 2, canvas.height / 2 + 50);
+            const otherGameTxt = "Pulsa espacio para otra partida";
+            var txtWidth = ctx.measureText(otherGameTxt).width;
+            var paddingX = 20;
+            ctx.fillStyle = "rgba(255,255,255,0.85)";
+            var rectX = canvas.width / 2 - txtWidth / 2 - paddingX;
+            var rectY = canvas.height / 2 + 50 - (canvas.height / 35);
+            var rectWidth = txtWidth + 2 * paddingX;
+            var rectHeight = canvas.height / 35 * 2;
+            ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+            ctx.fillStyle = "cyan";
+            ctx.fillText(otherGameTxt, canvas.width / 2, canvas.height / 2 + 50);
             ctx.restore();
         }
     }
