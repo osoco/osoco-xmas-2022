@@ -426,18 +426,38 @@ template {
   --color-up-hover: #f98d01;
   --color-text: #888;
   --font-size-base: 16px;
-  --cube-size: 40px;
+  --cube-size: 30px;
   --paddin: var(--font-size-base);
   --paddin-lightbox: calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 }
-@media (min-width: 660px) and (min-height: 660px) {
+@media (min-height: 660px) {
   :root {
-    --cube-size: 60px;
+    --cube-size: 40px;
   }
 }
-@media (min-width: 800px) and (min-height: 800px) {
+@media (min-height: 800px) and (min-width: 500px) {
   :root {
-    --cube-size: 75px;
+    --cube-size: 55px;
+  }
+}
+@media (min-height: 960px) and (min-width: 665px) {
+  :root {
+    --cube-size: 70px;
+  }
+}
+@media (min-height: 1100px) and (min-width: 755px) {
+  :root {
+    --cube-size: 80px;
+  }
+}
+@media (min-height: 1300px) and (min-width: 945px) {
+  :root {
+    --cube-size: 100px;
+  }
+}
+@media (min-height: 1450px) and (min-width: 1250px) {
+  :root {
+    --cube-size: 120px;
   }
 }
 
@@ -502,6 +522,52 @@ img {
   max-width: 100%;
 }
 
+.ooo-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--paddin) 0;
+}
+
+.ooo-btn {
+  padding: 1rem 2rem;
+  background-color: #ff6600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2em;
+  border: 1px solid #ffbc95;
+}
+@media (min-height: 800px) and (min-width: 500px) {
+  .ooo-btn {
+    font-size: 20px;
+    border-width: 2px;
+  }
+}
+@media (min-height: 960px) and (min-width: 665px) {
+  .ooo-btn {
+    font-size: 25px;
+    border-width: 3px;
+  }
+}
+@media (min-height: 1100px) and (min-width: 755px) {
+  .ooo-btn {
+    font-size: 30px;
+    border-width: 4px;
+  }
+}
+@media (min-height: 1300px) and (min-width: 945px) {
+  .ooo-btn {
+    font-size: 35px;
+    border-width: 5px;
+  }
+}
+@media (min-height: 1450px) and (min-width: 1250px) {
+  .ooo-btn {
+    font-size: 50px;
+    border-width: 7px;
+  }
+}
+
 .ooo-animaLogo {
   display: flex;
   justify-content: center;
@@ -527,7 +593,7 @@ img {
   right: 0;
   bottom: 0;
   z-index: 2000;
-  background-image: url(/images/anima/fondo-logo.svg);
+  background-image: url(../images/anima/fondo-logo.svg);
   background-size: 180px;
   background-position: 50%;
   transition: all 1s ease-in-out;
@@ -690,6 +756,8 @@ img {
 .ooo-tree .ooo-cube > div.gift-content {
   transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
   background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 1em;
   font-size: 8px;
   border: 3px solid #fff;
@@ -709,15 +777,14 @@ img {
   transform: rotateX(-90deg) translateZ(0) translateY(calc(-1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
   opacity: 1;
 }
+.ooo-tree .ooo-cube[data-cube=c-2] .gift-content {
+  background-image: url(../images/tarjetas/ddd.png);
+}
 .ooo-tree .ooo-cube[data-cube=c-5] .gift-content {
-  background-image: url(/images/tarjetas/gigantas.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(../images/tarjetas/gigantas.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-20] .gift-content {
-  background-image: url(/images/tarjetas/osoco_portada1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(../images/tarjetas/osoco_portada1.jpg);
 }
 .ooo-tree > div:nth-child(6) {
   grid-column-start: 2;
@@ -1031,6 +1098,7 @@ img {
 .ooo-lightBox {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
   position: fixed;
   padding: 1em;
   top: 0;
@@ -1055,9 +1123,7 @@ img {
   position: relative;
   display: none;
   max-width: 100vw;
-  max-height: 100vh;
   width: 100%;
-  height: 100%;
   background-color: #f2f2f2;
   color: #072107;
   padding: var(--paddin-lightbox);
@@ -1065,10 +1131,14 @@ img {
   border: 1px solid #555;
   box-shadow: -73px 49px 60px 0px rgba(0, 0, 0, 0.45);
 }
-@media (min-width: 660px) {
+@media (min-width: 700px) {
   .ooo-lightBox > div {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 50vw;
+  }
+}
+@media (min-width: 1400px) {
+  .ooo-lightBox > div {
+    max-width: 35vw;
   }
 }
 .ooo-lightBox > div.ooo-active {
@@ -1091,7 +1161,7 @@ img {
 }
 .ooo-lightBox > div .ooo-scroll {
   overflow: auto;
-  max-height: 100%;
+  max-height: 92vh;
   padding-right: calc(2 * var(--font-size-base));
 }
 .ooo-lightBox > div .ooo-scroll h2 {
@@ -1112,11 +1182,64 @@ img {
   bottom: 0;
   justify-content: center;
   align-items: center;
-  z-index: 100;
-  display: none;
+  z-index: 0;
 }
 #ooo-game.ooo-active {
+  z-index: 100;
   display: flex;
+}
+#ooo-game.ooo-active > div {
+  transition: all 1s ease;
+  transition-delay: 1s;
+  opacity: 1;
+}
+#ooo-game > div {
+  transition: all 1s ease;
+  opacity: 0;
+}
+#ooo-game .ooo-qbert {
+  width: 300px;
+  height: 320px;
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-height: 660px) {
+  #ooo-game .ooo-qbert {
+    width: 220px;
+    margin-top: 140px;
+  }
+}
+@media (min-height: 800px) and (min-width: 500px) {
+  #ooo-game .ooo-qbert {
+    width: 290px;
+    margin-top: 140px;
+  }
+}
+@media (min-height: 960px) and (min-width: 665px) {
+  #ooo-game .ooo-qbert {
+    width: 380px;
+    margin-top: 180px;
+  }
+}
+@media (min-height: 1100px) and (min-width: 755px) {
+  #ooo-game .ooo-qbert {
+    width: 380px;
+    margin-top: 180px;
+  }
+}
+@media (min-height: 1300px) and (min-width: 945px) {
+  #ooo-game .ooo-qbert {
+    width: 550px;
+    margin-top: 180px;
+  }
+}
+@media (min-height: 1450px) and (min-width: 1250px) {
+  #ooo-game .ooo-qbert {
+    width: 600px;
+    margin-top: 200px;
+  }
 }
 
 @-webkit-keyframes estrella-anima {

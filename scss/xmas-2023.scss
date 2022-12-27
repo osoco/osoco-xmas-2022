@@ -10,16 +10,28 @@
     --color-up-hover:             #f98d01;
     --color-text:                 #888;
     --font-size-base:               16px;
-    --cube-size:                    40px;
+    --cube-size:                    30px;
 
     --paddin:                      var(--font-size-base);
     --paddin-lightbox:             calc(3 * var(--font-size-base)) 0 calc(1 * var(--font-size-base)) calc(2 * var(--font-size-base));
 
-    @media (min-width: 660px) and (min-height:660px) {
-        --cube-size:                    60px;
+    @media (min-height: 660px) {
+        --cube-size:                    40px;
     }
-    @media (min-width: 800px) and (min-height: 800px) {
-        --cube-size:                    75px;
+    @media (min-height: 800px) and (min-width: 500px){
+        --cube-size:                    55px;
+    }
+    @media (min-height: 960px) and (min-width: 665px){
+        --cube-size:                    70px;
+    }
+    @media (min-height: 1100px)and (min-width: 755px){
+        --cube-size:                    80px;
+    }
+    @media (min-height: 1300px)and (min-width: 945px){
+        --cube-size:                    100px;
+    }
+    @media (min-height: 1450px)and (min-width: 1250px){
+        --cube-size:                    120px;
     }
 }
 * {
@@ -78,6 +90,40 @@ a{
 img{
     max-width: 100%;
 }
+.ooo-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--paddin) 0;
+}
+.ooo-btn{
+    padding: 1rem 2rem;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 2em;
+    border: 1px solid #ffbc95;
+    @media (min-height: 800px) and (min-width: 500px){
+        font-size: 20px;
+        border-width: 2px;       
+    }
+    @media (min-height: 960px) and (min-width: 665px){
+        font-size: 25px;
+        border-width: 3px;
+    }
+    @media (min-height: 1100px)and (min-width: 755px){
+        font-size: 30px;
+        border-width: 4px;
+    }
+    @media (min-height: 1300px)and (min-width: 945px){
+        font-size: 35px;
+        border-width: 5px;
+    }
+    @media (min-height: 1450px)and (min-width: 1250px){
+       font-size: 50px;
+       border-width: 7px;
+    }
+}
 .ooo-animaLogo{
     display: flex;
     justify-content: center;
@@ -102,7 +148,7 @@ img{
         right: 0;
         bottom:0;
         z-index: 2000;
-        background-image: url(/images/anima/fondo-logo.svg);
+        background-image: url(../images/anima/fondo-logo.svg);
         background-size: 180px;
         background-position: 50%;
         
@@ -256,6 +302,8 @@ img{
         > div.gift-content{
             transform: rotateX(-90deg) translateZ(0px) translateY(-45px) translateX(0px) rotateY(45deg);
             background-color: #f2f2f2;
+            background-repeat: no-repeat;
+            background-size: cover;
             padding: 1em;
             font-size: 8px;
             border: 3px solid #fff;
@@ -273,15 +321,14 @@ img{
             opacity: 1;
         }
         // tarjetas
+        &[data-cube='c-2'] .gift-content{
+            background-image: url(../images/tarjetas/ddd.png);
+        }
         &[data-cube='c-5'] .gift-content{
-            background-image: url(/images/tarjetas/gigantas.png);
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-image: url(../images/tarjetas/gigantas.png);
         }
         &[data-cube='c-20'] .gift-content{
-            background-image: url(/images/tarjetas/osoco_portada1.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-image: url(../images/tarjetas/osoco_portada1.jpg);
         }
     }
     > div:nth-child(6){
@@ -473,6 +520,7 @@ img{
 .ooo-lightBox{
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
     position:fixed;
     padding: 1em;
     top: 0;
@@ -496,13 +544,13 @@ img{
         position: relative;
         display: none;
         max-width: 100vw;
-        max-height: 100vh;
-        @media (min-width: 660px) {
-            max-width: 500px;
-            max-height: 500px;
+        @media (min-width: 700px) {
+            max-width: 50vw;
+        }
+        @media (min-width: 1400px) {
+            max-width: 35vw;
         }
         width: 100%;
-        height: 100%;
         background-color: #f2f2f2;
         color: #072107;
         padding: var(--paddin-lightbox);
@@ -528,7 +576,7 @@ img{
         }
         .ooo-scroll{
             overflow: auto;
-            max-height: 100%;
+            max-height: 92vh;
             padding-right: calc(2 * var(--font-size-base));
             h2{
                 margin: 0;
@@ -550,10 +598,54 @@ img{
     bottom: 0;
     justify-content: center;
     align-items: center;
-    z-index: 100;
-    display: none;
+    z-index: 0;
     &.ooo-active{
+        z-index: 100;
         display: flex;
+        >div{
+            transition: all 1s ease;
+            transition-delay: 1s;
+            opacity: 1;    
+        }
+    }
+    >div{
+        transition: all 1s ease;
+        opacity: 0;
+    }
+    .ooo-qbert{
+        width: 300px;
+        height: 320px;
+        margin-top: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-height: 660px) {
+            width: 220px;
+            margin-top: 140px;
+        }
+        @media (min-height: 800px) and (min-width: 500px){
+            width: 290px;
+            margin-top: 140px;
+            
+        }
+        @media (min-height: 960px) and (min-width: 665px){
+            width: 380px;
+            margin-top: 180px;
+        }
+        @media (min-height: 1100px)and (min-width: 755px){
+            width: 380px;
+            margin-top: 180px;
+        }
+        @media (min-height: 1300px)and (min-width: 945px){
+            width: 550px;
+            margin-top: 180px;
+            
+        }
+        @media (min-height: 1450px)and (min-width: 1250px){
+            width: 600px;
+            margin-top: 200px;
+        }
     }
 }
 
