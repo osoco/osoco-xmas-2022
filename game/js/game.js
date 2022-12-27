@@ -28,8 +28,10 @@
         musicGainValue: 0.3,
         sfxGainValue: 1,
         scorePerTileVisited: 25,
+        scoreExtraLive: 500,
         minimumTimeBetweenEnemies: 1300,
         variableTimeBetweenEnemies: 700,
+        qBertSpeed: 10,
         enemySpeed: 25,
         delayEnemy: 250,
         delayJumpEnemy: 500,
@@ -40,25 +42,10 @@
     // Game variables
     var canvas;
     var ctx;
-    var level = 1;
+    var level;
     var availableLives;
-    var board = [];    
-    var qBert = {
-        position: [0, 0],
-        tilePosition: [0, 0],
-        vector: [0, 0],
-        speed: 10,
-        isJumping: false,
-        lastJump: 0,
-        isDead: false,
-        cosine: 0,
-        spriteS: new Sprite("game/images/qbert.png", [128, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        spriteA: new Sprite("game/images/qbert.png", [192, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        spriteW: new Sprite("game/images/qbert.png", [0, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        spriteQ: new Sprite("game/images/qbert.png", [64, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        sprite: null
-    };
-    qBert.sprite = qBert.spriteA;
+    var board;
+    var qBert;
  
     var tile = {
         position: [0, 0],
@@ -91,7 +78,7 @@
     var enemies = [];
     var lastEnemyGenerationTime;
     var currentVariableTimeBetweenEnemies;
-    var visitedQubes = 0;
+    var visitedQubes;
     var sfxBuffers;
     var bgSource;
     var sfxSource;
@@ -158,6 +145,11 @@
     }    
 
     function handleInputs(dt) {
+        if (isGameOver &&
+           (input.isDown("SPACE"))) {
+            restartGame();
+        }
+
         if (qBert.isDead && !isGameOver &&
            (input.isDown("Q") ||
            input.isDown("W") ||
@@ -315,7 +307,7 @@
             if (enemy.isEntering || enemy.isExitting) continue;
             if (enemy.tilePosition[0] == qBert.tilePosition[0] && enemy.tilePosition[1] == qBert.tilePosition[1]) {
                 qBert.isDead = true;
-                if (availableLives > 0) {
+                if (availableLives > 1) {
                     availableLives--;
                     playSfxSound(1);
                 } else {
@@ -372,15 +364,15 @@
     function renderScoreAndLevel() {
         ctx.fillStyle = GAME.scoreFgColor;
         
-        ctx.font = (canvas.height / 40) + "px \"Press Start 2P\", sans-serif";
+        ctx.font = (canvas.height / 30) + "px \"Press Start 2P\", sans-serif";
         ctx.fillText("score: " + score, 16, 25);
-        ctx.fillText("level: " + level, 16, 25 + (canvas.height / 40) * 1.5);
+        ctx.fillText("level: " + level, 16, 25 + (canvas.height / 30) * 1.5);
     }
 
     function renderAvailableLives() {
         if (availableLives > 0) {
             for (var l = 0; l < availableLives - 1; l++) {
-                live.position[0] = 200 + l * 30;
+                live.position[0] = canvas.width/2 + l * 50;
                 live.position[1] = 10
                 renderGameElement(live);
             }
@@ -389,8 +381,8 @@
 
     function renderDeath() {
         if (!qBert.isDead) return;
-        deadQBert.position[0] = qBert.position[0] - 8;
-        deadQBert.position[1] = qBert.position[1] - 30;
+        deadQBert.position[0] = qBert.position[0] - 16;
+        deadQBert.position[1] = qBert.position[1] - 60;
         renderGameElement(deadQBert);
     }
 
@@ -406,7 +398,11 @@
             ctx.fillStyle = "white"
             ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2);
             ctx.fillStyle = "red"
-            ctx.fillText("Game Over", canvas.width / 2 + 2, canvas.height / 2);                      
+            ctx.fillText("Game Over", canvas.width / 2 + 2, canvas.height / 2);
+
+            ctx.font = (canvas.height / 35) + "px \"Press Start 2P\", sans-serif";
+            ctx.fillStyle = 'white';
+            ctx.fillText("Pulsa espacio para otra partida", canvas.width / 2, canvas.height / 2 + 50);
             ctx.restore();
         }
     }
@@ -423,18 +419,53 @@
         console.log("Your browser does not support Canvas2D API")        
     }
 
-    function init() {
+    function restartGame() {
+        isGameOver = false;
+        loadBgMusicBuffer();
+        resetGame();
+    }
+
+    function resetGame() {
         lastFrameTime = lastEnemyGenerationTime = performance.now();
         currentVariableTimeBetweenEnemies = Math.random() * GAME.variableTimeBetweenEnemies;
         availableLives = GAME.maxLives;
+        visitedQubes = 0;
+        score = 0;
+        level = 1;
+        tile.spriteForNotVisited = new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth * 2.5, 320], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
+        tile.spriteForVisited = new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth * 2.5, 384], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
+        qBert = {
+            position: [0, 0],
+            tilePosition: [0, 0],
+            vector: [0, 0],
+            speed: GAME.qBertSpeed,
+            isJumping: false,
+            lastJump: 0,
+            isDead: false,
+            cosine: 0,
+            spriteS: new Sprite("game/images/qbert.png", [128, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+            spriteA: new Sprite("game/images/qbert.png", [192, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+            spriteW: new Sprite("game/images/qbert.png", [0, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+            spriteQ: new Sprite("game/images/qbert.png", [64, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+            sprite: null
+        };
+        qBert.sprite = qBert.spriteA;
         createGameBoard();
         positionQBert(false);
+        main();
+    }
+
+    function init() {
+        configureSound();
+        resetGame();
+    }
+
+    function configureSound() {
         configureSoundContext();
         if (!disabledAudio) {
             loadBgMusicBuffer();
             loadSfxSoundsBuffer();
-        }        
-        main();
+        }
     }
 
     function loadBgMusicBuffer() {
@@ -492,6 +523,10 @@
     function stopBgMusic() {
         bgSource.stop();
     }
+
+    function resumeBgMusic() {
+        bgSource.start(0);
+    }
     
     function configureSoundContext() {
         try {
@@ -508,8 +543,15 @@
             muteButton.addEventListener(
                 "click",
                 () => {
-                    musicGainNode.gain.value = musicGainNode.gain.value ? 0 : GAME.musicGainValue;
-                    sfxGainNode.gain.value = sfxGainNode.gain.value ? 0 : GAME.sfxGainValue;
+                    if (musicGainNode.gain.value === 0) {
+                        musicGainNode.gain.value = GAME.musicGainValue;
+                        sfxGainNode.gain.value = GAME.sfxGainValue;
+                        muteButton.innerText = "Mute"
+                    } else {
+                        musicGainNode.gain.value = 0;
+                        sfxGainNode.gain.value = 0;
+                        muteButton.innerText = "Sound"
+                    }
                 },
                 false);
             
@@ -520,6 +562,7 @@
     }
 
     function createGameBoard() {
+        board = [];
         const boardStartingY = canvas.height / 2 - GAME.boardRows / 2 * GAME.qubeHeight * 0.75;
         for (var row=0; row < GAME.boardRows; row++) {
             for (var col=0; col < row + 1; col++) {
@@ -547,6 +590,11 @@
                 qube.isVisited = true;
                 playSfxSound(0);
                 score += GAME.scorePerTileVisited;
+                if ((availableLives < GAME.maxLives) &&
+                    (score >= GAME.scoreExtraLive) &&
+                    (score % GAME.scoreExtraLive === 0)) {
+                    availableLives++;
+                }
             }
         }
     }
@@ -616,7 +664,7 @@
         var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
         var mute = document.createElement("button");
         mute.id = 'mute';
-        mute.innerText = 'Mute/Play';
+        mute.innerText = 'Mute';
         mute.className = 'ooo-btn';
         document.body.appendChild(mute);
     }
