@@ -390,30 +390,25 @@
     function renderGameOver() {
         if (isGameOver) {
             ctx.save();
-            ctx.textAlign = "center";            
-            ctx.font = (canvas.height / 15) + "px \"Press Start 2P\", sans-serif";
-
-            ctx.fillStyle = "cyan"
-            ctx.fillText("Game Over", canvas.width / 2 - 2, canvas.height / 2);
-            ctx.fillStyle = "white"
-            ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2);
-            ctx.fillStyle = "red"
-            ctx.fillText("Game Over", canvas.width / 2 + 2, canvas.height / 2);
-
-            ctx.font = (canvas.height / 35) + "px \"Press Start 2P\", sans-serif";
-            const otherGameTxt = "Pulsa espacio para otra partida";
-            var txtWidth = ctx.measureText(otherGameTxt).width;
-            var paddingX = 20;
-            ctx.fillStyle = "rgba(255,255,255,0.85)";
-            var rectX = canvas.width / 2 - txtWidth / 2 - paddingX;
-            var rectY = canvas.height / 2 + 50 - (canvas.height / 35);
-            var rectWidth = txtWidth + 2 * paddingX;
-            var rectHeight = canvas.height / 35 * 2;
-            ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
-            ctx.fillStyle = "cyan";
-            ctx.fillText(otherGameTxt, canvas.width / 2, canvas.height / 2 + 50);
+            ctx.textAlign = "center";
+            var font = (canvas.height / 15) + "px \"Press Start 2P\", sans-serif";
+            stereoscopicText("Game Over", font, canvas.width / 2, canvas.height / 2)
+            font = (canvas.height / 50) + "px \"Press Start 2P\", sans-serif";
+            stereoscopicText("Pulsa ESPACIO para otra partida", font, canvas.width / 2, canvas.height / 2 + 30);
             ctx.restore();
         }
+    }
+
+    function stereoscopicText(text, font, x, y) {
+        ctx.save();
+        ctx.font = font;
+        ctx.fillStyle = "cyan"
+        ctx.fillText(text, x - 2, y);
+        ctx.fillStyle = "white"
+        ctx.fillText(text, x, y);
+        ctx.fillStyle = "red"
+        ctx.fillText(text, x + 2, y);
+        ctx.restore();
     }
 
     function renderGameElement(element) {
