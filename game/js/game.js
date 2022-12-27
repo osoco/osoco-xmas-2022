@@ -18,10 +18,10 @@
         scoreFgColor: "#fe9b36",
         gameOverFgColor: "#dd0000",
         boardRows: 6,
-        qubeWidth: 32,
-        qubeHeight: 32,
-        qBertWidth: 16,
-        qBertHeight: 16,
+        qubeWidth: 64,
+        qubeHeight: 64,
+        qBertWidth: 32,
+        qBertHeight: 32,
         showFPS: false,
         delayJump: 250,
         delayKeys: 500,
@@ -38,6 +38,8 @@
     }
 
     // Game variables
+    var canvas;
+    var ctx;
     var level = 1;
     var availableLives;
     var board = [];    
@@ -50,30 +52,30 @@
         lastJump: 0,
         isDead: false,
         cosine: 0,
-        spriteS: new Sprite("game/images/qbert.png", [64, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        spriteA: new Sprite("game/images/qbert.png", [96, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+        spriteS: new Sprite("game/images/qbert.png", [128, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+        spriteA: new Sprite("game/images/qbert.png", [192, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
         spriteW: new Sprite("game/images/qbert.png", [0, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
-        spriteQ: new Sprite("game/images/qbert.png", [32, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
+        spriteQ: new Sprite("game/images/qbert.png", [64, 0], [GAME.qBertWidth, GAME.qBertHeight], 5, [0, 1]),
         sprite: null
     };
     qBert.sprite = qBert.spriteA;
  
     var tile = {
         position: [0, 0],
-        spriteForNotVisited: new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth, 160], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true),
-        spriteForVisited: new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth, 192], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true),
+        spriteForNotVisited: new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth, 320], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true),
+        spriteForVisited: new Sprite("game/images/qbert.png", [(level - 1) * GAME.qubeWidth, 384], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true),
         sprite: null
     };
     tile.sprite = tile.spriteForNotVisited;
 
     var deadQBert= {
         position: [0, 0],
-        sprite: new Sprite("game/images/qbert.png", [128, 80], [48, 32], 0, [0])
+        sprite: new Sprite("game/images/qbert.png", [256, 160], [96, 64], 0, [0])
     };
 
     var live = {
         position: [0, 0],
-        sprite: new Sprite("game/images/qbert.png", [64, 0], [GAME.qBertWidth, GAME.qBertHeight], 0, [0]),
+        sprite: new Sprite("game/images/qbert.png", [128, 0], [GAME.qBertWidth, GAME.qBertHeight], 0, [0]),
     };
     
     
@@ -93,13 +95,6 @@
     var sfxBuffers;
     var bgSource;
     var sfxSource;
-    
-    // Load Canvas
-    const canvas = document.getElementById("qbert-canvas");
-    const ctx = canvas.getContext("2d");
-    if (!ctx) {
-        canvasNotSupported();
-    }
 
     // The game main loop
     function main(frameTime) {
@@ -308,8 +303,8 @@
             }
             level++;
             levelForTiles = level % (GAME.maxLevelsForTiles + 1);
-            tile.spriteForNotVisited = new Sprite("game/images/qbert.png", [(levelForTiles - 1) * GAME.qubeWidth * 2.5, 160], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
-            tile.spriteForVisited = new Sprite("game/images/qbert.png", [(levelForTiles - 1) * GAME.qubeWidth * 2.5, 192], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
+            tile.spriteForNotVisited = new Sprite("game/images/qbert.png", [(levelForTiles - 1) * GAME.qubeWidth * 2.5, 320], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
+            tile.spriteForVisited = new Sprite("game/images/qbert.png", [(levelForTiles - 1) * GAME.qubeWidth * 2.5, 384], [GAME.qubeWidth, GAME.qubeHeight], 0, 1, "horizontal", true);
             resetQBert();
         }
     }
@@ -594,14 +589,52 @@
         ctx.restore();
     }
 
+    function createGameCanvas() {
+        var canvasElement = document.createElement("canvas");
+        canvasElement.width = GAME.canvasWidth;
+        canvasElement.height = GAME.canvasHeight;
+        //var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
+        document.body.appendChild(canvasElement);
+        return canvasElement;
+    }
+
+    function hideGameCover() {
+        var decora = document.getElementsByClassName("ooo-decora")[0];
+        decora.style.display = 'none';
+        var gameContainer = document.getElementById("ooo-game");
+        gameContainer.style.display = 'none';
+        /*
+        var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
+        var qBertImage = gameContainer.getElementsByTagName("img")[0];
+        qBertImage.style.display = 'none';
+        var buttons = gameContainer.getElementsByClassName("ooo-buttons")[0];
+        buttons.style.display = 'none';
+        */
+    }
+
+    function createMuteButton() {
+        var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
+        var mute = document.createElement("button");
+        mute.id = 'mute';
+        mute.innerText = 'Mute/Play';
+        document.body.appendChild(mute);
+    }
+
     function loadGame() {
         running = true;
+        hideGameCover();
+        canvas = createGameCanvas();
+        createMuteButton();
+        ctx = canvas.getContext("2d");
+        if (!ctx) {
+            canvasNotSupported();
+        }
         loadingScreen();
         loadResources();
     }
 
     // Start game event
-    canvas.addEventListener(
+    document.getElementById("start-game").addEventListener(
         "click",
         () => {
             if (!running) {
