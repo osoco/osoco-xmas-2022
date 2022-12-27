@@ -30,7 +30,8 @@
         scorePerTileVisited: 25,
         scoreExtraLive: 500,
         minimumTimeBetweenEnemies: 1300,
-        variableTimeBetweenEnemies: 700,
+        variableTimeBetweenEnemies: 1000,
+        timeBetweenEnemiesReductionPerLevel: 200,
         qBertSpeed: 10,
         enemySpeed: 25,
         delayEnemy: 250,
@@ -102,7 +103,7 @@
     }
 
     function produceEnemies() {
-        if (Date.now() - lastEnemyGenerationTime < GAME.minimumTimeBetweenEnemies + currentVariableTimeBetweenEnemies) {
+        if (Date.now() - lastEnemyGenerationTime < (GAME.minimumTimeBetweenEnemies - level * GAME.timeBetweenEnemiesReductionPerLevel) + currentVariableTimeBetweenEnemies) {
             return;
         }
         produceEnemy();
@@ -114,8 +115,8 @@
         var enemy = enemiesPool.getEnemy();
         var rnd = (Math.random() < 0.5) ? 0 : 1;
         var initialPosition = getQubePosition(rnd, 1);
-        enemy.position = [initialPosition[0] + 8, 0];
-        enemy.destination = initialPosition[1] - 4;
+        enemy.position = [initialPosition[0] + 16, 0];
+        enemy.destination = initialPosition[1] - 16;
         enemy.tilePosition = [rnd, 1];
         enemy.isEntering = true;
         enemy.isJumping = false;
@@ -603,8 +604,8 @@
         const tileX = enemy.tilePosition[0];
         const tileY = enemy.tilePosition[1];
         enemy.position = getQubePosition(tileX, tileY);
-        enemy.position[0] += 8;
-        enemy.position[1] -= 4;
+        enemy.position[0] += 16;
+        enemy.position[1] -= 16;
     }
 
     function getQube(x, y) {
