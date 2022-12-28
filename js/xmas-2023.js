@@ -44,16 +44,13 @@ $(function(){
         }, 7000);
         setTimeout( function() {
             $('.ooo-animaMano').addClass('ooo-a2');
-            $('.ooo-cube[data-cube="c-12"]').addClass('ooo-active');
+            $('.ooo-tree').addClass('ooo-openHelp');
             $('.ooo-cube[data-cube="c-13"]').removeClass('ooo-active');
         }, 8000);
-        setTimeout( function() {
-            $('.ooo-animaMano').addClass('ooo-a3');
-            $('.ooo-cube[data-cube="c-12"]').removeClass('ooo-active');
-        }, 9000);
-        setTimeout( function() {
-            $('.ooo-animaMano').hide();
-        }, 11000);
+        // setTimeout( function() {
+            // $('.ooo-animaMano').addClass('ooo-a3');
+            // $('.ooo-tree').addClass('.ooo-openHelp');
+        // }, 9000);
 
 
     }
@@ -66,6 +63,7 @@ $(function(){
         let thisCube = thisBox.data().cube;
 
         if( $(".ooo-active").length ){
+            closeHelp();
             if($(thisBox).hasClass('ooo-active')){
                 closeCad();
             }
@@ -102,7 +100,14 @@ $(function(){
             $( "#ooo-game" ).addClass('ooo-active');
         }, 1000);
     }
-
+    // Cerrar ayuda
+    const closeHelp = () => {
+        $('.ooo-animaMano').addClass('ooo-a3');
+        $('.ooo-tree').removeClass('ooo-openHelp');
+        setTimeout( function() {
+            $('.ooo-animaMano').hide();
+        }, 1000);
+    }
 
 // -----------------------------------------------------------------------------------------------------------
 //  DISPARADORES
@@ -130,4 +135,5 @@ $(function(){
         event.preventDefault();
         openGame();
     });
+
 });

@@ -290,7 +290,7 @@ img{
 .ooo-animaMano{
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: calc( 50% - (174px/2));
     z-index: 4;
     display: flex;
     flex-direction: column;
@@ -299,6 +299,7 @@ img{
     opacity: 1;
     transform: translate(0,0);
     text-align: center;
+    pointer-events: none;
     .ooo-mano{
         height: 32px;
         width: 32px;
@@ -317,7 +318,7 @@ img{
     }
     &.ooo-a2{
         transition: all 1s ease-in-out;
-        transform: translate(calc( -1 * var(--cube-size)), calc( 2 * (var(--cube-size))));
+        transform: translate(0, calc( 2 * (var(--cube-size))));
     }
     &.ooo-a3{
         transition: all 2s ease-in-out;
@@ -572,6 +573,24 @@ img{
             }
         }
     }
+    &.ooo-openHelp{
+        .ooo-cube[data-cube='c-12']{
+            transform: rotate(90deg) translateZ(calc(2 * var(--cube-size)));
+            .back{
+                background-color: #e86500;
+            }
+            .up{
+                opacity: 0;
+            }
+            .left{
+                background-color: #bd5200;
+            }
+            .gift-content{
+                transform: rotateX(-90deg) translateZ(0) translateY(calc( -1.5 * var(--cube-size))) translateX(0px) rotateY(45deg);
+                opacity: 1;
+            }
+        }
+    }
 
 }
 .ooo-cube{
@@ -739,7 +758,10 @@ img{
             font-size: 20px;
         }
         .ooo-instructions{
-            display: flex;
+            display: none;
+            @media (min-height: 960px) and (min-width: 665px){
+                display: flex;
+            }
             justify-content: center;
             ul{
                 font-size: 13px;
