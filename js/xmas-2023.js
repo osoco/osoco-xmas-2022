@@ -38,6 +38,23 @@ $(function(){
         setTimeout( function() {
             $('.ooo-animaLogo').hide();
         }, 8000);
+        setTimeout( function() {
+            $('.ooo-animaMano').addClass('ooo-a1');
+            $('.ooo-cube[data-cube="c-13"]').addClass('ooo-active');
+        }, 7000);
+        setTimeout( function() {
+            $('.ooo-animaMano').addClass('ooo-a2');
+            $('.ooo-cube[data-cube="c-12"]').addClass('ooo-active');
+            $('.ooo-cube[data-cube="c-13"]').removeClass('ooo-active');
+        }, 8000);
+        setTimeout( function() {
+            $('.ooo-animaMano').addClass('ooo-a3');
+            $('.ooo-cube[data-cube="c-12"]').removeClass('ooo-active');
+        }, 9000);
+        setTimeout( function() {
+            $('.ooo-animaMano').hide();
+        }, 10000);
+
 
     }
     

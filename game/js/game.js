@@ -11,8 +11,8 @@
 
     // Game configuration
     const GAME = {
-        canvasWidth: 600,
-        canvasHeight: 600,
+        canvasWidth: 800,
+        canvasHeight: 800,
         bgColor: "transparent",        
         loadingFgColor: "#fe9b36",
         scoreFgColor: "#fe9b36",

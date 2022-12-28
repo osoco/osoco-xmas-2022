@@ -739,6 +739,35 @@ img {
   text-align: center;
 }
 
+.ooo-animaMano {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  background-image: url(../images/icon-hand.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.ooo-animaMano.ooo-a1 {
+  transition: all 1s ease-in-out;
+  transform: translate(var(--cube-size), var(--cube-size));
+}
+.ooo-animaMano.ooo-a2 {
+  transition: all 1s ease-in-out;
+  transform: translate(calc(-1 * var(--cube-size)), calc(2 * (var(--cube-size))));
+}
+.ooo-animaMano.ooo-a3 {
+  transition: all 2s ease-in-out;
+  transform: translate(0, 0);
+  opacity: 0;
+}
+
 .ooo-container-3D {
   position: relative;
   perspective: 3000px;
