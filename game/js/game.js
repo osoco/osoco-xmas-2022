@@ -550,11 +550,11 @@
                     if (musicGainNode.gain.value === 0) {
                         musicGainNode.gain.value = GAME.musicGainValue;
                         sfxGainNode.gain.value = GAME.sfxGainValue;
-                        muteButton.innerHTML = "<img src='../images/ico-son-off.png'>"
+                        muteButton.innerHTML = "<img src='images/ico-son-off.png'>"
                     } else {
                         musicGainNode.gain.value = 0;
                         sfxGainNode.gain.value = 0;
-                        muteButton.innerHTML = "<img src='../images/ico-son-on.png'>"
+                        muteButton.innerHTML = "<img src='images/ico-son-on.png'>"
                     }
                 },
                 false);
@@ -668,7 +668,7 @@
         var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
         var mute = document.createElement("button");
         mute.id = 'mute';
-        mute.innerHTML = "<img src='../images/ico-son-off.png'>";
+        mute.innerHTML = "<img src='images/ico-son-off.png'>";
         mute.className = 'ooo-btn-son';
         document.body.appendChild(mute);
     }
