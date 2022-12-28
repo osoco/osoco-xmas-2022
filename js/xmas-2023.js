@@ -53,7 +53,7 @@ $(function(){
         }, 9000);
         setTimeout( function() {
             $('.ooo-animaMano').hide();
-        }, 10000);
+        }, 11000);
 
 
     }

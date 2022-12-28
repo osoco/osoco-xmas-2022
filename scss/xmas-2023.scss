@@ -292,15 +292,25 @@ img{
     top: 50%;
     left: 50%;
     z-index: 4;
-    height: 32px;
-    width: 32px;
-    display: inline-block;
-    background-image: url(../images/icon-hand.svg);
-    background-repeat:no-repeat;
-    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: all .5s ease-in-out;
     opacity: 1;
     transform: translate(0,0);
+    text-align: center;
+    .ooo-mano{
+        height: 32px;
+        width: 32px;
+        background-image: url(../images/icon-hand.svg);
+        background-repeat:no-repeat;
+        background-size: contain;
+    }
+    .ooo-manoTxt{
+        margin-top: 1em;
+        padding: 1em;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+    }
     &.ooo-a1{
         transition: all 1s ease-in-out;
         transform: translate(var(--cube-size), var(--cube-size));
