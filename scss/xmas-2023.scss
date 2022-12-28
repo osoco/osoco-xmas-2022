@@ -136,6 +136,27 @@ img{
         border-width: 7px;
         }
     }
+    &-son{
+        cursor: pointer;
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        padding: 6px;
+        background-color: var(--color-link);
+        border: 3px solid #ffbc95;
+        border-radius: 50%;
+        img{
+            vertical-align: middle;
+            transition: all .5s ease-in-out;
+            transform: scale(1);
+        }
+        &:hover{
+            img{
+                transition: all .5s ease-in-out;
+                transform: scale(1.2);
+            }
+        }
+    }
 }
 .ooo-animaLogo{
     display: flex;

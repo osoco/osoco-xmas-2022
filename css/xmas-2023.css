@@ -579,6 +579,25 @@ img {
     border-width: 7px;
   }
 }
+.ooo-btn-son {
+  cursor: pointer;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  padding: 6px;
+  background-color: var(--color-link);
+  border: 3px solid #ffbc95;
+  border-radius: 50%;
+}
+.ooo-btn-son img {
+  vertical-align: middle;
+  transition: all 0.5s ease-in-out;
+  transform: scale(1);
+}
+.ooo-btn-son:hover img {
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.2);
+}
 
 .ooo-animaLogo {
   display: flex;
