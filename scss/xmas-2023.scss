@@ -678,6 +678,13 @@ img{
             text-align: center;
             font-size: 20px;
         }
+        .ooo-instructions{
+            display: flex;
+            justify-content: center;
+            ul{
+                font-size: 13px;
+            }
+        }
         @media (min-height: 660px) {
             width: 220px;
             margin-top: 140px;
