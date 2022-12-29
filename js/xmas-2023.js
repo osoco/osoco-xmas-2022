@@ -95,10 +95,6 @@ $(function(){
             $( "#ooo-game" ).addClass('ooo-active');
         }, 1000);
     }
-    // 05 - Animar WEBS
-    const animaHistoricoWebs = () => {
-        
-    }
     // Cerrar ayuda
     const closeHelp = () => {
         $('.ooo-animaMano').addClass('ooo-a3');

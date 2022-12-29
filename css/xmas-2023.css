@@ -866,6 +866,9 @@ img {
 .ooo-tree .ooo-cube[data-cube=c-4] .gift-content {
   background-image: url(../images/tarjetas/gigantas.png);
 }
+.ooo-tree .ooo-cube[data-cube=c-5] .gift-content {
+  background-image: url(../images/tarjetas/logo-old.png);
+}
 .ooo-tree .ooo-cube[data-cube=c-6] .gift-content {
   background-image: url(../images/tarjetas/mob.png);
 }
@@ -873,7 +876,7 @@ img {
   background-image: url(../images/tarjetas/oficinas.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-8] .gift-content {
-  background-image: url(../images/tarjetas/trineo.png);
+  background-image: url(../images/tarjetas/colaboraciones.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-9] .gift-content {
   background-image: url(../images/tarjetas/ruth.png);
@@ -1303,7 +1306,6 @@ img {
   padding-top: var(--paddin);
 }
 .ooo-lightBox > div.ooo-anima-web ul {
-  list-style: none;
   margin: 0 0 30px;
   margin-right: calc(2 * var(--font-size-base));
   padding: 0;
@@ -1317,6 +1319,9 @@ img {
   text-align: center;
   font-size: 50px;
 }
+.ooo-lightBox > div.ooo-anima-web ul li.ooo-active {
+  display: block;
+}
 .ooo-lightBox > div.ooo-anima-web .ooo-scroll {
   max-height: 71vh;
 }
@@ -1324,8 +1329,26 @@ img {
   display: none;
   position: relative;
 }
+.ooo-lightBox > div.ooo-anima-web .ooo-scroll div.ooo-active {
+  display: block;
+}
 .ooo-lightBox > div.ooo-anima-web .ooo-scroll img {
   box-shadow: 3px 10px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.ooo-lightBox .ooo-customers {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 5px;
+}
+.ooo-lightBox .ooo-customers li {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #ooo-game {

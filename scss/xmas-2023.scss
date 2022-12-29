@@ -409,6 +409,9 @@ img{
         &[data-cube='c-4'] .gift-content{
             background-image: url(../images/tarjetas/gigantas.png);
         }
+        &[data-cube='c-5'] .gift-content{
+            background-image: url(../images/tarjetas/logo-old.png);
+        }
         &[data-cube='c-6'] .gift-content{
             background-image: url(../images/tarjetas/mob.png);
         }
@@ -416,7 +419,7 @@ img{
             background-image: url(../images/tarjetas/oficinas.png);
         }
         &[data-cube='c-8'] .gift-content{
-            background-image: url(../images/tarjetas/trineo.png);
+            background-image: url(../images/tarjetas/colaboraciones.png);
         }
         &[data-cube='c-9'] .gift-content{
             background-image: url(../images/tarjetas/ruth.png);
@@ -720,7 +723,6 @@ img{
         }
         &.ooo-anima-web{
             ul{
-                list-style: none;
                 margin: 0 0 30px;
                 margin-right: calc(2 * var(--font-size-base));
                 padding: 0;
@@ -732,6 +734,9 @@ img{
                     margin: var(--paddin) 0;
                     text-align: center;
                     font-size: 50px;
+                    &.ooo-active{
+                        display: block;
+                    }
                 }
             }
             .ooo-scroll{
@@ -739,11 +744,29 @@ img{
                 div{
                     display: none;
                     position: relative;
+                    &.ooo-active{
+                        display: block;
+                    }
                 }
                 img{
                     box-shadow: 3px 10px 5px 0px rgba(0,0,0,0.1);
                 }
             }
+        }
+    }
+    .ooo-customers{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display:grid;
+        grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+        gap: 5px;
+        li{
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
