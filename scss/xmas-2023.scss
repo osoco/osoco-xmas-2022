@@ -718,6 +718,33 @@ img{
                 padding-top: var(--paddin);
             }
         }
+        &.ooo-anima-web{
+            ul{
+                list-style: none;
+                margin: 0 0 30px;
+                margin-right: calc(2 * var(--font-size-base));
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                color: var(--color-link);
+                li{
+                    display: none;
+                    margin: var(--paddin) 0;
+                    text-align: center;
+                    font-size: 50px;
+                }
+            }
+            .ooo-scroll{
+                max-height: 71vh;
+                div{
+                    display: none;
+                    position: relative;
+                }
+                img{
+                    box-shadow: 3px 10px 5px 0px rgba(0,0,0,0.1);
+                }
+            }
+        }
     }
 }
 #ooo-game{

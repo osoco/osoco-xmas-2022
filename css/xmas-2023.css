@@ -762,8 +762,9 @@ img {
 }
 .ooo-animaMano .ooo-manoTxt {
   margin-top: 1em;
-  padding: 1em;
+  padding: 1em 2em;
   background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
 .ooo-animaMano.ooo-a1 {
   transition: all 1s ease-in-out;
@@ -1300,6 +1301,31 @@ img {
 }
 .ooo-lightBox > div .ooo-scroll img + h2 {
   padding-top: var(--paddin);
+}
+.ooo-lightBox > div.ooo-anima-web ul {
+  list-style: none;
+  margin: 0 0 30px;
+  margin-right: calc(2 * var(--font-size-base));
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  color: var(--color-link);
+}
+.ooo-lightBox > div.ooo-anima-web ul li {
+  display: none;
+  margin: var(--paddin) 0;
+  text-align: center;
+  font-size: 50px;
+}
+.ooo-lightBox > div.ooo-anima-web .ooo-scroll {
+  max-height: 71vh;
+}
+.ooo-lightBox > div.ooo-anima-web .ooo-scroll div {
+  display: none;
+  position: relative;
+}
+.ooo-lightBox > div.ooo-anima-web .ooo-scroll img {
+  box-shadow: 3px 10px 5px 0px rgba(0, 0, 0, 0.1);
 }
 
 #ooo-game {

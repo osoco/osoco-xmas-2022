@@ -47,11 +47,6 @@ $(function(){
             $('.ooo-tree').addClass('ooo-openHelp');
             $('.ooo-cube[data-cube="c-13"]').removeClass('ooo-active');
         }, 8000);
-        // setTimeout( function() {
-            // $('.ooo-animaMano').addClass('ooo-a3');
-            // $('.ooo-tree').addClass('.ooo-openHelp');
-        // }, 9000);
-
 
     }
     
@@ -99,6 +94,10 @@ $(function(){
         setTimeout( function() {
             $( "#ooo-game" ).addClass('ooo-active');
         }, 1000);
+    }
+    // 05 - Animar WEBS
+    const animaHistoricoWebs = () => {
+        
     }
     // Cerrar ayuda
     const closeHelp = () => {
