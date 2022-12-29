@@ -448,6 +448,12 @@ img{
         &[data-cube='c-17'] .gift-content{
             background-image: url(../images/tarjetas/contestia-logo.png);
         }
+        &[data-cube='c-18'] .gift-content{
+            background-image: url(../images/tarjetas/miboky-tg.png);
+        }
+        &[data-cube='c-19'] .gift-content{
+            background-image: url(../images/tarjetas/desarrolloActivo-tg.png);
+        }
         &[data-cube='c-20'] .gift-content{
             background-image: url(../images/tarjetas/game-cover-15.jpeg);
         }
@@ -773,6 +779,13 @@ img{
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+    }
+    .ooo-miboky{
+        display: flex;
+        margin: 30px 0;
+        > * {
+            flex-grow: 1;
         }
     }
 }
