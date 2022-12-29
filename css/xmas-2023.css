@@ -862,7 +862,7 @@ img {
 .ooo-tree .ooo-cube[data-cube=c-3] .gift-content {
   background-image: url(../images/tarjetas/cultura.png);
 }
-.ooo-tree .ooo-cube[data-cube=c-5] .gift-content {
+.ooo-tree .ooo-cube[data-cube=c-4] .gift-content {
   background-image: url(../images/tarjetas/gigantas.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-6] .gift-content {
@@ -878,7 +878,7 @@ img {
   background-image: url(../images/tarjetas/ruth.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-10] .gift-content {
-  background-image: url(../images/tarjetas/game-cover-15.jpeg);
+  background-image: url(../images/tarjetas/osoco_portada1.jpg);
 }
 .ooo-tree .ooo-cube[data-cube=c-11] .gift-content {
   background-image: url(../images/tarjetas/comer.png);
@@ -896,7 +896,7 @@ img {
   background-image: url(../images/tarjetas/desayuno.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-20] .gift-content {
-  background-image: url(../images/tarjetas/osoco_portada1.jpg);
+  background-image: url(../images/tarjetas/game-cover-15.jpeg);
 }
 .ooo-tree > div:nth-child(6) {
   grid-column-start: 2;
