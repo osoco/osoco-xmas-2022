@@ -13,6 +13,7 @@
     const GAME = {
         canvasWidth: 800,
         canvasHeight: 800,
+        htmlElementContainerId: 'ooo-container',
         bgColor: "transparent",        
         loadingFgColor: "#fe9b36",
         scoreFgColor: "#fe9b36",
@@ -645,9 +646,16 @@
         var canvasElement = document.createElement("canvas");
         canvasElement.width = GAME.canvasWidth;
         canvasElement.height = GAME.canvasHeight;
-        //var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
-        document.body.appendChild(canvasElement);
+        var gameContainer = findGameContainer();
+        if (!gameContainer) {
+            throw new Error(`Game container ${GAME.htmlElementContainerId} not found!`);
+        }
+        gameContainer.appendChild(canvasElement);
         return canvasElement;
+    }
+
+    function findGameContainer() {
+        return document.getElementById(GAME.htmlElementContainerId);
     }
 
     function hideGameCover() {
@@ -655,22 +663,15 @@
         decora.style.display = 'none';
         var gameContainer = document.getElementById("ooo-game");
         gameContainer.style.display = 'none';
-        /*
-        var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
-        var qBertImage = gameContainer.getElementsByTagName("img")[0];
-        qBertImage.style.display = 'none';
-        var buttons = gameContainer.getElementsByClassName("ooo-buttons")[0];
-        buttons.style.display = 'none';
-        */
     }
 
     function createMuteButton() {
-        var gameContainer = document.getElementsByClassName("ooo-qbert")[0];
+        var gameContainer = findGameContainer();
         var mute = document.createElement("button");
         mute.id = 'mute';
         mute.innerHTML = "<img src='images/ico-son-off.png'>";
         mute.className = 'ooo-btn-son';
-        document.body.appendChild(mute);
+        gameContainer.appendChild(mute);
     }
 
     function loadGame() {
