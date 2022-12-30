@@ -70,7 +70,16 @@ body {
 strong{
     font-family: 'montserrat_alternatesbold';
 }
-#ooo-container{display: flex;}
+#ooo-container{
+    display: flex;
+    position: relative;
+    .ooo-buttons{
+        position:absolute;
+        bottom: 10px;
+        left: calc(50% -  60px);
+        z-index: 1000;
+    }
+}
 h1{
     font-size: 35px;
     margin-bottom: 0;
@@ -813,6 +822,18 @@ img{
     >div{
         transition: all 1s ease;
         opacity: 0;
+    }
+    .ooo-buttons{
+        display: none;
+        @media (min-width: 660px) {
+            display: flex;
+        }
+    }
+    .ooo-help-movil{
+        text-align: center;
+        @media (min-width: 660px) {
+            display: none;
+        }
     }
     .ooo-qbert{
         position: relative;

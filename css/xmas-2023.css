@@ -501,7 +501,13 @@ strong {
 
 #ooo-container {
   display: flex;
-  flex-direction: column;
+  position: relative;
+}
+#ooo-container .ooo-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 60px);
+  z-index: 1000;
 }
 
 h1 {
@@ -1397,6 +1403,22 @@ img {
 #ooo-game > div {
   transition: all 1s ease;
   opacity: 0;
+}
+#ooo-game .ooo-buttons {
+  display: none;
+}
+@media (min-width: 660px) {
+  #ooo-game .ooo-buttons {
+    display: flex;
+  }
+}
+#ooo-game .ooo-help-movil {
+  text-align: center;
+}
+@media (min-width: 660px) {
+  #ooo-game .ooo-help-movil {
+    display: none;
+  }
 }
 #ooo-game .ooo-qbert {
   position: relative;
