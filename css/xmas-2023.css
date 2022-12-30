@@ -891,13 +891,25 @@ img {
   background-image: url(../images/tarjetas/vr.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-13] .gift-content {
-  background-image: url(../images/tarjetas/bkool02.png);
+  background-image: url(../images/tarjetas/customers.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-14] .gift-content {
   background-image: url(../images/tarjetas/familias.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-15] .gift-content {
   background-image: url(../images/tarjetas/desayuno.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-16] .gift-content {
+  background-image: url(../images/tarjetas/blueplane.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-17] .gift-content {
+  background-image: url(../images/tarjetas/contestia-logo.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-18] .gift-content {
+  background-image: url(../images/tarjetas/miboky-tg.png);
+}
+.ooo-tree .ooo-cube[data-cube=c-19] .gift-content {
+  background-image: url(../images/tarjetas/desarrolloActivo-tg.png);
 }
 .ooo-tree .ooo-cube[data-cube=c-20] .gift-content {
   background-image: url(../images/tarjetas/game-cover-15.jpeg);
@@ -1349,6 +1361,13 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ooo-lightBox .ooo-miboky {
+  display: flex;
+  margin: 30px 0;
+}
+.ooo-lightBox .ooo-miboky > * {
+  flex-grow: 1;
 }
 
 #ooo-game {

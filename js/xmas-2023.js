@@ -57,6 +57,8 @@ $(function(){
         let tree = $('.ooo-tree').innerWidth();
         let thisCube = thisBox.data().cube;
 
+        let webHistorico = thisCube == "c-10" ? animaHistoricoWebs() : '' ;
+
         if( $(".ooo-active").length ){
             closeHelp();
             if($(thisBox).hasClass('ooo-active')){
@@ -94,6 +96,16 @@ $(function(){
         setTimeout( function() {
             $( "#ooo-game" ).addClass('ooo-active');
         }, 1000);
+    }
+    // 05 - Animar WEBS
+    const animaHistoricoWebs = () => {
+        const webs = $('.js-anima-web').find('li').length;
+        console.log(webs);
+        for (var i=0; i<webs; i++) {
+            setTimeout( function() {
+                console.log('intento ' + i);
+            }, 1000);
+        }
     }
     // Cerrar ayuda
     const closeHelp = () => {
