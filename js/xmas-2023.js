@@ -138,9 +138,4 @@ $(function(){
         }
     });
 
-    $('.logo-osoco a').click(function (event) {
-        event.preventDefault();
-        openGame();
-    });
-
 });

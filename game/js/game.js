@@ -642,6 +642,22 @@
         ctx.restore();
     }
 
+    function introScreen() {
+        ctx.save();
+        const introImage = new Image();
+        introImage.src = 'game/images/intro.png';
+        introImage.onload = () => {
+            ctx.drawImage(introImage, 0, 0);
+        }
+        var gameContainer = findGameContainer();
+        var startButton = document.createElement("div");
+        startButton.className = 'ooo-buttons';
+        startButton.innerHTML = '<a href="#" class="ooo-btn">INICIAR</a>';
+        gameContainer.appendChild(startButton);
+        ctx.restore();
+        return startButton;
+    }
+
     function createGameCanvas() {
         var canvasElement = document.createElement("canvas");
         canvasElement.width = GAME.canvasWidth;
@@ -678,13 +694,22 @@
         running = true;
         hideGameCover();
         canvas = createGameCanvas();
-        createMuteButton();
         ctx = canvas.getContext("2d");
         if (!ctx) {
             canvasNotSupported();
         }
-        loadingScreen();
-        loadResources();
+        var startButton = introScreen();
+        startButton.addEventListener(
+            "click",
+            () => {
+                startButton.style.display = 'none';
+                var gameContainer = findGameContainer();
+                gameContainer.style.flexDirection = 'row';
+                loadingScreen();
+                createMuteButton();
+                loadResources();
+            },
+        false);
     }
 
     // Start game event

@@ -501,6 +501,7 @@ strong {
 
 #ooo-container {
   display: flex;
+  flex-direction: column;
 }
 
 h1 {
