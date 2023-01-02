@@ -74,6 +74,7 @@
     var disabledAudio = false;
     var running = false;
     var isGameOver = false;
+    var stopMain;
     var lastKeyTime;
     var score = 0;
     var lastFrameTime;
@@ -91,7 +92,7 @@
         if (!frameTime) {
             frameTime = performance.now();
         }
-        let stopMain = window.requestAnimationFrame(main);
+        stopMain = window.requestAnimationFrame(main);
         const timeBetweenFrames = frameTime - lastFrameTime;        
         if (GAME.showFPS) {
             const fps = 1000 / timeBetweenFrames;
@@ -457,12 +458,12 @@
         qBert.sprite = qBert.spriteA;
         createGameBoard();
         positionQBert(false);
-        main();
     }
 
     function init() {
         configureSound();
         resetGame();
+        main();
     }
 
     function configureSound() {
